@@ -1,3 +1,4 @@
+_⚠ This is a hackathon project with no support or quality guarantee_
 
 # PlayFab & XR Server Challenge Content for Non Gaming
 
