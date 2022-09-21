@@ -67,4 +67,12 @@ You should receive a 200 OK application/json response that looks like:
 }
 ```
 
+## Implement Registration and Login in a Web App
+Add a login/signup form to your web app. Use the APIs you enabled in the previous step.  Verify your solution works end to end, i.e. you can register a user, login with the newly created user and capture the value of the `SessionTicket` returned from the API. 
+
+Exactly how you implement this is up to you, although you can use the following code as a starting point:
+
+`https://svelte.dev/repl/ca967b45a5aa47b2bb2f9118eb79eefe?version=3.50.1`
+
+
 Congratulations! You have successfully enabled User Registration and Login, and created a User on your XRServer instance!
