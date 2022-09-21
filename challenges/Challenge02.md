@@ -1,6 +1,6 @@
 # Challenge 2 - Registering a User and Logging in
 
-At the end of this challenge, challengers should know how to enable User Registration and Login using the API and will have implemented the User Registration and Login API using the front end app.
+At the end of this challenge, challengers should know how to enable User Registration and Login using the API and will have enabled the User Registration and Login API using the front end app.
 
 ## XRServer
 
@@ -24,7 +24,7 @@ This enables the /auth/RegisterPlayFabUser and the /auth/LoginWithPlayFab APIs o
 
 ## Test the App
 
-Test your Registration API by registering a User on /auth/RegisterPlayFabUser
+Test your Registration API with the Developer Console by registering a User on /auth/RegisterPlayFabUser
 
 Example Request Body:
 
@@ -46,3 +46,25 @@ You should receive a 200 OK application/json response that looks like:
     "params": {}
 }
 ```
+
+Then test your Login API with the Developer Console by registering a User on /auth/LoginWithPlayFab
+
+```json
+{
+    "password" : "REPLACE_ME",
+    "username" : "user.name"
+}
+```
+
+You should receive a 200 OK application/json response that looks like:
+```json
+{ 
+    "code": 200,
+    "message": "OK",
+    "success": true,
+    "data": {},
+    "params": {}
+}
+```
+
+Congratulations! You have successfully enabled User Registration and Login, and created a User on your XRServer instance!
