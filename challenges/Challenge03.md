@@ -57,7 +57,25 @@ You should now see a user added to your segment, if you do not, double check tha
 
 
 If we increment the segement again, we can see the user moves into the next one (in this example that filter was already created)
-![an image showing a JSON response on the UpdatePlayerStatistic endpoint showing we incremented the statistic](screenshots/challenge_3/second_increment_of_statistic.png)
+
+
+UpdatePlayerStatistic example response
+```json
+{ 
+    "code": 200,
+    "message": "OK",
+    "success": true,
+    "data": {
+        "StatisticName": "math_course_progress",
+        "Value": 2,
+    },
+    "params": {
+        "PlayFabId": "9ACED761F8CE6146",
+        "StatisticName" : "math_course_progress",
+        "Value" : 1
+    }
+}
+```
 
 You should also now be able to view the count of users that are in any given segment ![A view of the segment overview in XRServer showing 1 user now belonging to two segments](screenshots/challenge_3/user_now_finished_math_course.png)
 
