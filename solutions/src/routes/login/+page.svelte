@@ -1,7 +1,9 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
+  import { goto, invalidate } from '$app/navigation';
+  import { getContext } from "svelte";
 
+  const user = getContext("user");
   let username: string = "";
   let password: string = "";
   let errors: any = null;
@@ -16,12 +18,13 @@
     });
 
     // TODO handle network errors
+
     const body: PlayFabRes = await response.json();
     if (body.success) {
-      page.user = body.data;
-      goto("/");
+      return location.href = "/";
+    } else {
+      errors = body.message;
     }
-    errors = body.message;
   }
 </script>
 

@@ -1,14 +1,14 @@
 import { courses } from "$lib/api/data";
 import { redirect } from "@sveltejs/kit";
-import type { PageServerLoad, Actions } from "./$types";
+import type { PageLoad } from "./$types";
 
 
-export const load: PageServerLoad = async ({ parent }) => {
+export const load: PageLoad = async ({ parent }) => {
   // TODO: API Call Here.
   // Use `courses` for preseeded data
   const { user } = await parent();
   if (!user) {
-    throw redirect(302, "/");
+    throw redirect(303, "/login");
   }
   return { courses, user };
 }

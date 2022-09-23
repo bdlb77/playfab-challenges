@@ -1,57 +1,61 @@
-<script lang="ts">
-  import Counter from "$lib/Counter.svelte";
-</script>
 
+<script lang="ts">
+  import logo from "$lib/header/svelte-logo.svg";
+
+  import type { PageData } from "./$types";
+  export let data: PageData;
+  $: courses = data.courses;
+  // your script goes here
+</script>
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Courses</title>
+  <meta name="description" content="Courses App">
 </svelte:head>
 
-<section>
-  <h1>
-    <span class="welcome">
-      <picture>
-        <source srcset="svelte-welcome.webp" type="image/webp" />
-        <img src="svelte-welcome.png" alt="Welcome" />
-      </picture>
-    </span>
 
-    to your new<br />SvelteKit app
-  </h1>
 
-  <h2>
-    try editing <strong>src/routes/+page.svelte</strong>
-  </h2>
+<div class="courses">
+  <h1>My Courses</h1>
+  <div class="course-list">
+    {#each courses as courses(courses.title)}
+      <a href="/courses/{courses.title}" class="course">
+        <div class="img-container">
+          <img src={logo} alt="SvelteKit" />
+        </div>
+        <div class="details">
+          <h3>{courses.title}</h3>
+          <p>{courses.semester}</p>
+        </div>
+      </a>
+    {/each}
+  </div>
 
-  <Counter />
-</section>
+</div>
+
+
+
 
 <style>
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+  .course-list {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+    padding: 2rem;
   }
-
-  h1 {
-    width: 100%;
+  .course {
+    border-radius: 2rem;
+    width: 260px;
+    height: 240px;
+    box-shadow:  1px 1px 6px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: 5fr 1fr;
   }
-
-  .welcome {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding: 0 0 calc(100% * 495 / 2048) 0;
+  .course h3, p {
+    margin: 1rem;
   }
-
-  .welcome img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: block;
+  .img-container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>

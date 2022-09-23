@@ -17,6 +17,5 @@ export const loginPlayFab = async (request: UserReq): Promise<Record<string,any>
 
   const response = await fetch(`${BASE}/${LOGIN_PLAYFAB}`, opts);
   const json = await response.json();
-  console.log({json});
   return json;
 }
