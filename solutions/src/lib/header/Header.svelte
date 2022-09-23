@@ -13,9 +13,7 @@
     });
 
     page.user = null;
-		// this will trigger a redirect, because it
-		// causes the `load` function to run again
-	}
+  }
 
 </script>
 
