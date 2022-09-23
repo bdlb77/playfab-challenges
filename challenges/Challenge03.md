@@ -35,16 +35,13 @@ You will receive a prompt to name your new segment
 Create a few segments that you want your users to move through during the course of using your app ![A list of segments in the XRServer UI: finished_english_course, finished_math_course, started_english_course, started_math_course](screenshots/challenge_3/multi_segments_created_list.png)
 
 
-Select "Leaderboards" from the left hand side of the Playfab Menu ![A view of the Playfab drawer menu with "Leaderboards" highlighted](screenshots/challenge_3/leaderboard_highlighted.png)
+In the Developer Console -> Server use the SetPlayerStatisticDefinition API to create a new statistic, this will generate a new Leaderboard for your 
+App, which will allow that same statisctic to be tracked for individual users.
 
-Create a new App Statistics using PlayFab "New Leaderboard" which will allow a statistic to be available to all users ![View of New Leaderboard Page with a dummy name for a new statistic filled in](screenshots/challenge_3/create_new_leaderboard_in_playfab.png)
-
-Don't forget to save!
 
 In the Segment view of XRServer, select your segment and use the Segment Design diagram to Filter on a Statistic ![A view of the XRServer Segment Diagram screen](screenshots/challenge_3/set_statistic_filter_using_XRServer.png)
 
-Again, don't forget to save!
-
+Don't forget to save!
 
 # Set or update a statistic on a user, moving them into a segment 
 
