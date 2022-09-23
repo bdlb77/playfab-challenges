@@ -2,7 +2,7 @@
 // import { createSession, getUserByEmail } from '$lib/api/_db';
 import type { RequestEvent, RequestHandler } from './$types'
 import { respond } from "../_respond";
-import { loginPlayFab } from '$lib/playfabService';
+import { loginPlayFab } from '$lib/services/playfabService';
 
 declare global {
   type User = {

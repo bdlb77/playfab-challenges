@@ -15,7 +15,7 @@ declare namespace App {
   // }
 
 
-  // interface PageError {}
+  interface Error {}
 
   // interface Platform {}
 }
