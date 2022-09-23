@@ -1,9 +1,9 @@
 .DS_Store
 # Svelte
-app/node_modules
-app/build
-app/.svelte-kit
-app/package
+*node_modules
+*build
+*.svelte-kit
+*package
 *.env
 *.env.*
 !*.env.example
@@ -80,21 +80,6 @@ tags
 
 # Ignore code-workspaces
 *.code-workspace
-
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
 
 ### Windows ###
 # Windows thumbnail cache files
