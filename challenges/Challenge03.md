@@ -48,6 +48,8 @@ Don't forget to save!
 
 # Set or update a statistic on a user, moving them into a segment 
 
+Creating a `statistic` is a great way to track user progress using the notion of "points" and will automatically generate a `leaderboard` for each `statistic` you create.
+
 In the Developer console, using the PlayFabId obtained during the Login API call, under the Server section, find UpdatePlayerStatistic endpoint and use it to increment your users statistic value by 1
 ![A view of the UpdatePlayerStatistic view in the developer console with values filled in to increment a statistic by 1.  Headers are generated automatically.  PlayFabId is set to the ID retreived earlier, the statistic name is set to english_course_progress, the Value is set to 1](screenshots/challenge_3/update_player_statistic_call.png)
 
