@@ -18,12 +18,13 @@ By End of Challenge 4, the challenger should have created these following Segmen
 
 Ensure you have completed Challenge 2
 
-Begin by logging into your XRServer instance and selecting your previously created Title.
+Begin by logging into your XRServer instance and selecting your previously created App.
 
- Get the PlayFabId for the User you want to edit from the Login API call
+### Get the ID
+ Get the PlayFabId for the User you want to edit from the Login API call, alternatively you can also use the PlayerId from the Users page in XRServer
 
  # Create a Segment
-In the Developer Console, on the left hand side select Segments
+In the XRServer Dashboard, on the left hand side select Segments
 ![A red circle highlighting the segment tab on the left hand of the XRServer Development console](screenshots/challenge_3/select_segments.png)
 
 Select Create Segment ![A red circle highlighting the Create Segment button](screenshots/challenge_3/select_create_segment.png)
