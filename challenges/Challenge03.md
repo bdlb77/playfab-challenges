@@ -46,7 +46,7 @@ Don't forget to save!
 # Set or update a statistic on a user, moving them into a segment 
 
 In the Developer console, using the PlayFabId obtained during the Login API call, under the Server section, find UpdatePlayerStatistic endpoint and use it to increment your users statistic value by 1
-![A view of the UpdatePlayerStatistic view in the developer console with values filled in to increment a statistic by 1](screenshots/challenge_3/update_player_statistic_call.png)
+![A view of the UpdatePlayerStatistic view in the developer console with values filled in to increment a statistic by 1.  Headers are generated automatically.  PlayFabId is set to the ID retreived earlier, the statistic name is set to english_course_progress, the Value is set to 1](screenshots/challenge_3/update_player_statistic_call.png)
 
 You should now see a user added to your segment, if you do not, double check that you saved your segment design in the editor (if you haven't saved there will be a Orange Exclamation mark on the right hand side of the Segment Design view) ![A view of the segment overview in XRServer showing 1 user now in the segment](screenshots/challenge_3/user_added_to_segment.png)
 
