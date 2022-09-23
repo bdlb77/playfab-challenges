@@ -57,6 +57,6 @@ To run the application, you will need to set up a `.env` file and set the follow
 Each .env added for Svelte Environment has to be prefaced with `VITE`
 ```.env
 <!-- /app/.env -->
-VITE_BASE="https://demo.playfab.tv"
+VITE_BASE="https://test.playfab.tv"
 VITE_APP_ID="v0u9yv"
 ```
