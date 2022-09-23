@@ -10,4 +10,5 @@ export const load: PageServerLoad = async ({ parent }) => {
   if (!user) {
     throw redirect(302, "/");
   }
+  return { user }
 }
