@@ -1,6 +1,10 @@
 <script lang="ts">
-  import Header from "$lib/header/Header.svelte";
   import "../app.css";
+  import { page } from "$app/stores";
+  import { userStore } from "$lib/stores/user";
+  import Header from "$lib/header/Header.svelte";
+
+  $userStore = $page.data.user;
 </script>
 
 <Header />

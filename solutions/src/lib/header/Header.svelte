@@ -1,6 +1,15 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import logo from "./svelte-logo.svg";
+  import { userStore } from "$lib/stores/user";
+  async function handleLogout() {
+    const res = await fetch(`/auth/logout`, { method: "POST"});
+    if (res.ok) {
+      $userStore = null;
+      window.location.replace("/");
+    }
+  }
+
 </script>
 
 <header>
@@ -15,12 +24,20 @@
       <path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
     </svg>
     <ul>
-      <li class:active={$page.url.pathname === "/courses"}>
-        <a href="/courses">Courses</a>
-      </li>
-      <li class:active={$page.url.pathname === "/"}>
-        <a href="/">Home</a>
-      </li>
+      {#if $page.data.user}
+        <li class:active={$page.url.pathname === "/"}>
+          <a href="/">Courses</a>
+        </li>
+        <li>
+          <a href="#" on:click|preventDefault={handleLogout}>
+            Logout
+          </a>
+        </li>
+      {:else}
+        <li class:active={$page.url.pathname === "/login"}>
+          <a href="/login">Login</a>
+        </li>
+      {/if}
     </ul>
     <svg viewBox="0 0 2 3" aria-hidden="true">
       <path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
