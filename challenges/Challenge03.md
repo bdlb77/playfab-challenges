@@ -24,6 +24,9 @@ Begin by logging into your XRServer instance and selecting your previously creat
  Get the PlayFabId for the User you want to edit from the Login API call, alternatively you can also use the PlayerId from the Users page in XRServer
 
  # Create a Segment
+
+In XRServer, `Segments` should be one of the default pages available in the left side menu. If it's not, go to `Config` -> the `App Config` seciton -> the `Menu Layout` Tile. Here you can edit everything visible in your App's Menu. You can even rename `Segments` to something more appropriate to your business terminology.
+
 In the XRServer Dashboard, on the left hand side select Segments
 ![A red circle highlighting the segment tab on the left hand of the XRServer Development console](screenshots/challenge_3/select_segments.png)
 
