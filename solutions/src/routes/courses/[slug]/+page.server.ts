@@ -1,6 +1,6 @@
 import { courses } from "$lib/api/data";
 import { redirect } from "@sveltejs/kit";
-import type { PageServerLoad, Actions } from "./$types";
+import type { PageServerLoad } from "./$types";
 
 
 export const load: PageServerLoad = async ({ parent }) => {
@@ -10,5 +10,4 @@ export const load: PageServerLoad = async ({ parent }) => {
   if (!user) {
     throw redirect(302, "/");
   }
-  return { courses, user };
 }

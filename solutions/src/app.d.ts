@@ -4,9 +4,16 @@
 declare namespace App {
   interface Locals {
     userid: string;
+    user?: User | null;
   }
 
-  // interface PageData {}
+  interface PageData {
+    user: any;
+  }
+
+  // interface Session {
+  // }
+
 
   // interface PageError {}
 
