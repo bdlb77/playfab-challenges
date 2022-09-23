@@ -39,7 +39,7 @@ In the Developer Console -> Server use the SetPlayerStatisticDefinition API to c
 App, which will allow that same statisctic to be tracked for individual users.
 
 
-In the Segment view of XRServer, select your segment and use the Segment Design diagram to Filter on a Statistic ![A view of the XRServer Segment Diagram screen](screenshots/challenge_3/set_statistic_filter_using_XRServer.png)
+In the Segment view of XRServer, select your segment and use the Segment Design diagram to Filter on a Statistic ![A view of the XRServer Segment Diagram screen, there are three boxes from left to right, connected by arrows flowing to the right of the screen: Segment, Filter Group, Statistic.  Filter Group is set to AND, Statistic is set to: math_course_progress >= 1](screenshots/challenge_3/set_statistic_filter_using_XRServer.png)
 
 Don't forget to save!
 
