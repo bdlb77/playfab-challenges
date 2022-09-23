@@ -58,5 +58,5 @@ Each .env added for Svelte Environment has to be prefaced with `VITE`
 ```.env
 <!-- /app/.env -->
 VITE_BASE="https://test.playfab.tv"
-VITE_APP_ID="v0u9yv"
+VITE_APP_ID="9su9yv"
 ```
