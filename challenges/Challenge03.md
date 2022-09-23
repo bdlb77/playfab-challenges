@@ -61,5 +61,7 @@ If we increment the segement again, we can see the user moves into the next one 
 
 You should also now be able to view the count of users that are in any given segment ![A view of the segment overview in XRServer showing 1 user now belonging to two segments](screenshots/challenge_3/user_now_finished_math_course.png)
 
+At this point, now that you've used the XRServer developer console to move users through segments, implement the same functionality in your app for your users to move through completion of your math or english courses.
+
 # Summary
 Congratulations, you have now created a segment and added a user to it using a custom statistic!
