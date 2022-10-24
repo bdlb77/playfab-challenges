@@ -55,7 +55,7 @@ const courses: Course[] = [
           },
           {
             title: "Differencial Calculus",
-            description: "a method which deals with the rate of change of one quantity with respect to another",
+            description: "A method which deals with the rate of change of one quantity with respect to another",
             completed: false
           },
         ]
