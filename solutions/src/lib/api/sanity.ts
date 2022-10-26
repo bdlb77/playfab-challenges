@@ -18,16 +18,28 @@ type Course = {
 
 const client = sanityClient({
   projectId: "078kcyiw",
-  dataset: "playfab-challenges",
-  apiVersion: new Date().toLocaleDateString("en-ZA"),
+  dataset: "production",
+  apiVersion: '2022-10-26',
   useCdn: false
 });
 
 
-export const getCourses: Promise<Course[]> = async () => {
-  const courses: Course[] = await client.fetch(`*[_type == "course"]`);
+export const getCourses = async (): Promise<Course[]> => {
+  const courses: Course[] = await client.fetch(`
+  * [_type == "course"] {
+      title,
+      "modules": * [_type == "module" && course._ref == ^._id] {
+        title,
+        "lessons": * [_type == "lesson" && module._ref == ^.id ] {
+          title
+        }
+      }
+  }`);
 
   return courses;
-
 }
 
+export const getCourse = async (id: string): Promise<Course> => {
+  const course: Course = await client.fetch(`*[_id == "${id}"]`);
+  return course;
+}
