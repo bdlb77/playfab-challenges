@@ -18,7 +18,7 @@
   <h1>My Courses</h1>
   <div class="course-list">
     {#each courses as course}
-      <a href="/courses/{course.title}" class="course">
+      <a href="/courses/{course.id}" class="course">
         <div class="img-container">
           <img src={logo} alt="SvelteKit" />
         </div>

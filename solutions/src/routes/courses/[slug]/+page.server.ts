@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types";
-import { courses } from "$lib/api/data";
 import { redirect } from "@sveltejs/kit";
+import { SqliteDb } from "$lib/api/sqlite";
 
 export const load: PageLoad = async ({ params, parent }) =>{
   const  { slug } = params;
@@ -8,7 +8,9 @@ export const load: PageLoad = async ({ params, parent }) =>{
   if (!user) {
     throw redirect(302, "/login");
   }
-  const course = courses.find(course => course.title === slug);
+  const db = new SqliteDb();
+  const course = db.getSingleCourse(slug);
+  console.log({course})
 
   return { course };
 }

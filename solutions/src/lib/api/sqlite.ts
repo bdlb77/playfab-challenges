@@ -13,7 +13,17 @@ export class SqliteDb {
     // this._seed();
   }
 
-  public getCourses() {
+  public getSingleCourse(id: string) {
+    try {
+      const query = this.db.prepare(`SELECT * FROM courses
+      WHERE id = @id`)
+      const course = query.get({id})
+      return course;
+    } catch(err) {
+      console.error(`Error: ${err}`);
+    }
+  }
+  public getAllCourses() {
     try {
       const query = this.db.prepare("SELECT * FROM courses");
       const courses = query.all();
