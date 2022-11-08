@@ -17,14 +17,14 @@
 <div class="courses">
   <h1>My Courses</h1>
   <div class="course-list">
-    {#each courses as courses(courses.title)}
-      <a href="/courses/{courses.title}" class="course">
+    {#each courses as course}
+      <a href="/courses/{course.title}" class="course">
         <div class="img-container">
           <img src={logo} alt="SvelteKit" />
         </div>
         <div class="details">
-          <h3>{courses.title}</h3>
-          <p>{courses.semester}</p>
+          <h3>{course.title}</h3>
+          <p>{course.courseDate}</p>
         </div>
       </a>
     {/each}
