@@ -109,3 +109,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/svelte,web,visualstudiocode,windows,mac,linux,vim
 
+playfabsqlite.db

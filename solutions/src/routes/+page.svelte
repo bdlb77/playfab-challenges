@@ -1,39 +1,24 @@
-
 <script lang="ts">
+  import UnitCard from "$lib/components/UnitCard.svelte";
+    import UnitHeader from "$lib/components/UnitHeader.svelte";
   import logo from "$lib/header/svelte-logo.svg";
-
-  import type { PageData } from "./$types";
-  export let data: PageData;
-  $: courses = data.courses;
-  // your script goes here
+  import courses from "$lib/stores/courseStore";
 </script>
+
 <svelte:head>
   <title>Courses</title>
-  <meta name="description" content="Courses App">
+  <meta name="description" content="Courses App" />
 </svelte:head>
 
-
-
 <div class="courses">
-  <h1>My Courses</h1>
+    <UnitHeader title="My Courses" description="" />
+
   <div class="course-list">
-    {#each courses as courses(courses.title)}
-      <a href="/courses/{courses.title}" class="course">
-        <div class="img-container">
-          <img src={logo} alt="SvelteKit" />
-        </div>
-        <div class="details">
-          <h3>{courses.title}</h3>
-          <p>{courses.semester}</p>
-        </div>
-      </a>
+    {#each $courses as course (course.id)}
+      <UnitCard href="courses/{course.id}" title={course.title} description={course.description} unitType="course"/>
     {/each}
   </div>
-
 </div>
-
-
-
 
 <style>
   .course-list {
@@ -48,11 +33,12 @@
     border-radius: 2rem;
     width: 260px;
     height: 240px;
-    box-shadow:  1px 1px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-rows: 5fr 1fr;
   }
-  .course h3, p {
+  .course h3,
+  p {
     margin: 1rem;
   }
   .img-container {

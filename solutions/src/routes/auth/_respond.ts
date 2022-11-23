@@ -1,4 +1,4 @@
-import { error, json } from '@sveltejs/kit';
+import { error, json } from "@sveltejs/kit";
 
 export function respond(res: PlayFabRes) {
   if (res.code === 400) {
