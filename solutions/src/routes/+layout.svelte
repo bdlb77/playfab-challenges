@@ -1,10 +1,20 @@
+<svelte:head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</svelte:head>
+
 <script lang="ts">
-  import "../app.css";
+  import "../app.postcss";
   import { page } from "$app/stores";
   import { userStore } from "$lib/stores/user";
+  import courses from "$lib/stores/courseStore"
+  import modules from "$lib/stores/moduleStore"
+  import lessons from "$lib/stores/lessonStore"
   import Header from "$lib/header/Header.svelte";
 
   $userStore = $page.data.user;
+  $courses = $page.data.courses;
+  $lessons = $page.data.lessons;
+  $modules = $page.data.modules;
 </script>
 
 <Header />

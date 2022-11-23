@@ -3,6 +3,7 @@ import { courses, modules, lessons, type Course, type Module, type Lesson } from
 
 
 export class SqliteDb {
+
   private db = new Database('playfabsqlite.db');
   private courseName = "courses"
   private moduleName = "modules"
@@ -13,24 +14,37 @@ export class SqliteDb {
     // this._seed();
   }
 
-  public getSingleCourse(id: string) {
+  getLessons() {
+    let lessons: Lesson[] = [];
     try {
-      const query = this.db.prepare(`SELECT * FROM courses
-      WHERE id = @id`)
-      const course = query.get({id})
-      return course;
-    } catch(err) {
-      console.error(`Error: ${err}`);
+      const query = this.db.prepare("SELECT * FROM lessons");
+      lessons = query.all();
+    } catch (err) {
+      console.error("Error: ", err)
     }
+    return lessons;
   }
+  getModules() {
+    let modules: Module[] = [];
+    try {
+      const query = this.db.prepare("SELECT * FROM modules");
+      modules = query.all();
+    } catch (err) {
+      console.error("Error: ", err)
+    }
+    return modules;
+  }
+
   public getAllCourses() {
+    let courses: Course[] = [];
     try {
       const query = this.db.prepare("SELECT * FROM courses");
-      const courses = query.all();
+      courses = query.all();
       return courses;
     } catch(err) {
       console.error("Error: ", err)
     }
+    return courses;
   }
   private _seed() {
     const insertCourses = this.db.prepare(`INSERT INTO ${this.courseName}
