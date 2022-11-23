@@ -24,6 +24,24 @@ export class SqliteDb {
     }
     return lessons;
   }
+  updateLesson(id: string) {
+    try {
+      const query = this.db.prepare(`
+      UPDATE lessons
+      SET completed=1
+      WHERE id = @id`);
+
+      query.run({id});
+
+      return {
+        status: "ok"
+      }
+    } catch(err)
+    {
+      console.error("Error: ", err);
+    }
+  }
+
   getModules() {
     let modules: Module[] = [];
     try {

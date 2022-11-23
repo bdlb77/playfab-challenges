@@ -1,11 +1,20 @@
 <script lang="ts">
   import { TimelineItem, Button } from "flowbite-svelte";
+    import { createEventDispatcher } from "svelte";
 
-  import type { Lesson } from "$lib/api/data";
   // your script goes here
   export let title: string;
   export let description: string;
   export let completed: boolean;
+  export let id: number;
+  const dispatch = createEventDispatcher();
+
+
+  const submitCompleted = () => {
+
+    dispatch("submit")
+  }
+
 </script>
 
 <TimelineItem {title}  date={completed ? "Finished" : ""}>
@@ -30,7 +39,7 @@
   <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
     {description}
   </p>
-  <Button color="primary"
+  <Button on:click={submitCompleted} disabled={completed} gradiant color="primary"
     >{completed ? "Lesson Finished" : "Complete Lesson"}<svg
       class="ml-2 w-3 h-3"
       fill="currentColor"
@@ -44,6 +53,3 @@
     ></Button
   >
 </TimelineItem>
-
-
-style
