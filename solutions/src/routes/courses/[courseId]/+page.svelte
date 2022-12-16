@@ -6,8 +6,7 @@
   import type { PageData } from "./$types";
   export let data: PageData;
 
-  $: course = data.course!;
-  $: modules = data.filteredModules!;
+  $: course = data.course;
 </script>
 
 {#if course}

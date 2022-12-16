@@ -1,8 +1,12 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import UnitCard from "$lib/components/UnitCard.svelte";
-    import UnitHeader from "$lib/components/UnitHeader.svelte";
+  import UnitHeader from "$lib/components/UnitHeader.svelte";
   import logo from "$lib/header/svelte-logo.svg";
-  import courses from "$lib/stores/courseStore";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
+  $: courses = data.courses;
 </script>
 
 <svelte:head>
@@ -11,12 +15,18 @@
 </svelte:head>
 
 <div class="courses">
-    <UnitHeader title="My Courses" description="" />
+  <UnitHeader title="My Courses" description="" />
 
   <div class="course-list">
-    {#each $courses as course (course.id)}
-      <UnitCard href="courses/{course.id}" title={course.title} description={course.description} unitType="course"/>
-    {/each}
+      {#each courses as course}
+      {console.log("ID: ", course._id)}
+        <UnitCard
+          href="courses/{course.id}"
+          title={course.title ?? ""}
+          description={course.description ?? ""}
+          unitType="course"
+        />
+      {/each}
   </div>
 </div>
 

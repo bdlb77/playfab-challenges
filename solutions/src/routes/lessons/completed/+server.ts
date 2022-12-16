@@ -1,4 +1,4 @@
-import { SqliteDb } from "$lib/api/sqlite";
+import { lessons } from "$db/models/lesson";
 import type {  RequestEvent, RequestHandler } from "./$types";
 import { error, json } from '@sveltejs/kit';
 
@@ -9,15 +9,18 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     if (!id) {
       throw error(404, "Id is not Defined for Lesson.")
     }
-    console.log({id})
 
-    const db = new SqliteDb();
-    const lessonResponse = db.updateLesson(id);
+    const updateLessonRes = await lessons.updateOne({ _id: id},
+      {
+        $set: { "completed": true}
+      }
+    )
 
-    if (lessonResponse?.status === "ok") {
+    if (updateLessonRes.acknowledged) {
       console.log("Successfully Updated!")
     }
-    return json(lessonResponse);
+
+    return json({}, {status: 200});
   } catch(err)
   {
     console.error({err});

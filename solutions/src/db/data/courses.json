@@ -1,0 +1,17 @@
+[
+  {
+    "_id": 1,
+    "title": "STEVE",
+    "description": "Course that covers the main concepts.",
+    "courseDate": "2022-08-01",
+    "completed": false
+
+  },
+  {
+    "_id": 2,
+    "title": "English",
+    "description": "English 101 that will cover the basics.",
+    "courseDate": "2022-08-01",
+    "completed": false
+  }
+]
