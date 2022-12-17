@@ -1,16 +1,16 @@
-import { lessons } from "$db/models/lesson";
+import { LessonModel } from "$db/models/lesson";
 import type {  RequestEvent, RequestHandler } from "./$types";
 import { error, json } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }: RequestEvent) => {
   try {
-    const { id } = await request.json();
-
+    const { id }  = await request.json();
+    console.log({id})
     if (!id) {
       throw error(404, "Id is not Defined for Lesson.")
     }
 
-    const updateLessonRes = await lessons.updateOne({ _id: id},
+    const updateLessonRes = await LessonModel.updateOne({ _id: id},
       {
         $set: { "completed": true}
       }
@@ -19,8 +19,8 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     if (updateLessonRes.acknowledged) {
       console.log("Successfully Updated!")
     }
-
-    return json({}, {status: 200});
+    console.log({updateLessonRes})
+    return json({status: 200});
   } catch(err)
   {
     console.error({err});

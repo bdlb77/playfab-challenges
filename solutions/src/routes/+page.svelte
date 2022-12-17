@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { page } from "$app/stores";
   import UnitCard from "$lib/components/UnitCard.svelte";
   import UnitHeader from "$lib/components/UnitHeader.svelte";
   import logo from "$lib/header/svelte-logo.svg";
@@ -19,9 +18,8 @@
 
   <div class="course-list">
       {#each courses as course}
-      {console.log("ID: ", course._id)}
         <UnitCard
-          href="courses/{course.id}"
+          href="courses/{course._id}"
           title={course.title ?? ""}
           description={course.description ?? ""}
           unitType="course"

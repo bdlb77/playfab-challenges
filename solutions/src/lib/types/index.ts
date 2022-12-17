@@ -1,26 +1,23 @@
-import type { Schema } from "mongoose";
+import type { Schema, Document } from "mongoose";
 
 
-export interface CourseType {
-  _id: string;
+export interface ICourse extends Document {
   title: string;
   description: string;
   courseDate: Date;
   completed: boolean;
-  modules?: [Schema.Types.ObjectId];
+  modules?: IModule[];
 }
 
-export interface ModuleType {
-  _id: string;
+export interface IModule extends Document {
   title: string;
   description: string;
   completed: boolean;
   course: Schema.Types.ObjectId;
-  lessons?: [Schema.Types.ObjectId];
+  lessons?: ILesson[];
 }
 
-export interface LessonType {
-  _id: string;
+export interface ILesson extends Document {
   title: string;
   description: string;
   completed: boolean;

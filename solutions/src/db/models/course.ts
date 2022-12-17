@@ -1,4 +1,4 @@
-import type { CourseType } from "$lib/types";
+import type { ICourse } from "$lib/types";
 import mongoose from "mongoose"
 const { Schema } = mongoose;
 
@@ -8,12 +8,24 @@ const courseSchema = new Schema({
   description: String,
   courseDate: { type: Date },
   completed: Boolean,
-})
+},
+{
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
+}
+)
 
 courseSchema.virtual("modules", {
-  ref: "Module",
-  localField: "_id",
-  foreignField: "course"
+  ref: "module",
+  foreignField: "course",
+  localField: "_id"
 })
+// function autoPopulate(next) {
+// 	this.populate('modules');
+// 	next();
+// }
 
-export const CourseModel = mongoose.models.Course ??  mongoose.model<CourseType>("Course", courseSchema)
+// courseSchema.pre('find', autoPopulate);
+// courseSchema.pre('findOne', autoPopulate);
+
+export const CourseModel = mongoose.models.Course ??  mongoose.model<ICourse>("course", courseSchema)

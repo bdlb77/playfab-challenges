@@ -6,7 +6,8 @@
   export let title: string;
   export let description: string;
   export let completed: boolean;
-  export let id: number;
+  export let _id: string;
+
   const dispatch = createEventDispatcher();
 
 
