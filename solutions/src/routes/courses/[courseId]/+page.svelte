@@ -6,14 +6,13 @@
   import type { PageData } from "./$types";
   export let data: PageData;
 
-  $: course = data.course!;
-  $: modules = data.filteredModules!;
+  $: course = data.course;
 </script>
 
 {#if course}
   <UnitHeader title={course.title} description={course.description} />
   <div class="course-container">
-    {#each modules as module (module.title)}
+    {#each course.modules as module (module.id)}
       <UnitCard
         unitType="module"
         title={module.title}

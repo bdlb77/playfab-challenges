@@ -1,5 +1,4 @@
 
-// import { createSession, getUserByEmail } from '$lib/api/_db';
 import type { RequestEvent, RequestHandler } from './$types'
 import { respond } from "../_respond";
 import { loginPlayFab } from '$lib/services/playfabService';
@@ -27,6 +26,7 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     username: json.username,
     password: json.password
   }
+  console.log({user})
   // post to API for Login
   const playfabRes = await loginPlayFab(user);
 

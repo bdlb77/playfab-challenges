@@ -6,13 +6,13 @@
   export let title: string;
   export let description: string;
   export let completed: boolean;
-  export let id: number;
-  const dispatch = createEventDispatcher();
+  export let _id: string;
+
+  const dispatch = createEventDispatcher<{submit:{_id: string}}>();
 
 
   const submitCompleted = () => {
-
-    dispatch("submit")
+    dispatch("submit", {_id})
   }
 
 </script>

@@ -1,10 +1,11 @@
 import { APP_ID, BASE } from "../config";
-const LOGIN_PLAYFAB: string = "/auth/LoginWithPlayFab";
-const REGISTER_USER: string = "/auth/RegisterPlayFabUser";
+const LOGIN_PLAYFAB = "/auth/LoginWithPlayFab";
+const REGISTER_USER = "/auth/RegisterPlayFabUser";
 
 export const loginPlayFab = async (request: UserReq): Promise<Record<string,any>> => {
   const { username, password } = { ...request} ;
 
+  console.log({APP_ID})
   const opts: { method: string; headers: any; body: string} = {
     method: "POST",
     headers: {
@@ -15,6 +16,7 @@ export const loginPlayFab = async (request: UserReq): Promise<Record<string,any>
   };
 
   const response = await fetch(`${BASE}/${LOGIN_PLAYFAB}`, opts);
+  console.log({response})
   const json = await response.json();
   return json;
 }
