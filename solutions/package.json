@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
-    "seed": "tsc ./src/db/loadData.ts",
     "build": "vite build",
     "preview": "vite preview",
     "test": "playwright test",

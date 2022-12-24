@@ -12,7 +12,6 @@
 
 
   const submitCompleted = () => {
-    console.log({_id})
     dispatch("submit", {_id})
   }
 
