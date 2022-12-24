@@ -7,7 +7,6 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 
   // check if stores exist.
   const data = await CourseModel.findOne<ICourse>({ _id: courseId }).populate("modules")
-  console.log({data})
   const courseJSON = JSON.stringify(data);
   const courseData = JSON.parse(courseJSON);
   const { user } = await parent();

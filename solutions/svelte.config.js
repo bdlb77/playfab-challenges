@@ -10,9 +10,14 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    // COMMENT OUT IN PROD
+    csrf: {
+      checkOrigin: false,
+    },
     alias: {
       $db: './src/db',
     }
+
   }
 };
 

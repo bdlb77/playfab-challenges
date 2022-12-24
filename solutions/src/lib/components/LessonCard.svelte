@@ -8,12 +8,12 @@
   export let completed: boolean;
   export let _id: string;
 
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher<{submit:{_id: string}}>();
 
 
   const submitCompleted = () => {
-
-    dispatch("submit")
+    console.log({_id})
+    dispatch("submit", {_id})
   }
 
 </script>

@@ -5,29 +5,28 @@
   import LessonCard from "$lib/components/LessonCard.svelte";
   import { Timeline } from "flowbite-svelte";
   import UnitHeader from "$lib/components/UnitHeader.svelte";
-    import { invalidate } from "$app/navigation";
+  import type { ILesson } from "$lib/types";
 
   $: module = data.module;
   $: lessons = data.lessons;
 
-  let id: string;
-  export let success = false;
+  // export let success = false;
   // your script goes here
 
-  async function handleCompleteLesson() {
+  async function handleCompleteLesson(event: CustomEvent<{_id: string}>) {
+    const { _id } = event.detail;
+
     const response = await fetch(`/api/lessons/completed`, {
       method: "POST",
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ id: _id }),
       headers: {
-        "Content-Type": "application/json",
-      },
+        "Content-Type": "application/json"
+      }
     });
-    const data = await response.json();
-    console.log({data})
-    if (data.status == 200)
-    {
-      invalidate(() => true)
-    }
+    const { lesson: updatedLesson } = await response.json();
+    // take out previous lesson instance and update with new data.
+    const oldLessonIndex = lessons.findIndex((lesson) => lesson._id === updatedLesson._id);
+    lessons[oldLessonIndex] = updatedLesson;
   }
 </script>
 
@@ -36,8 +35,13 @@
   <UnitHeader title={module.title} description={module.description} />
   <Timeline order="vertical">
     {#each lessons as lesson}
-      {console.log({lesson})}
-      <LessonCard {...lesson} bind:_id={id} on:submit={handleCompleteLesson} />
+      <LessonCard
+        title={lesson.title}
+        description={lesson.description}
+        completed={lesson.completed}
+        _id={lesson._id}
+        on:submit={handleCompleteLesson}
+      />
     {/each}
   </Timeline>
 {/if}
