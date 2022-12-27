@@ -14,11 +14,12 @@
 </svelte:head>
 
 <div class="courses">
-  <UnitHeader title="My Courses" description="" />
+  <UnitHeader title="My Courses" description="" completed={false} />
 
   <div class="course-list">
       {#each courses as course}
         <UnitCard
+          completed={course.completed}
           href="courses/{course._id}"
           title={course.title ?? ""}
           description={course.description ?? ""}

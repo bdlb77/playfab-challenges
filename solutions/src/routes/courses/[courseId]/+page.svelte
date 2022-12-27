@@ -10,7 +10,7 @@
 </script>
 
 {#if course}
-  <UnitHeader title={course.title} description={course.description} />
+  <UnitHeader title={course.title} description={course.description} completed={course.completed} />
   <div class="course-container">
     {#each course.modules as module (module.id)}
       <UnitCard

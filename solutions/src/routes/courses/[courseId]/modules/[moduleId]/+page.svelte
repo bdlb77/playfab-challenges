@@ -36,8 +36,8 @@
 
 {#if module}
   <!-- content here -->
-  <UnitHeader title={module.title} description={module.description} />
-  <h1>FINISHED: { module.completed}</h1>
+  <UnitHeader title={module.title} description={module.description} completed={module.completed} />
+
   <Timeline order="vertical">
     {#each lessons as lesson}
       <LessonCard
