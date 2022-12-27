@@ -23,16 +23,21 @@
         "Content-Type": "application/json"
       }
     });
-    const { lesson: updatedLesson } = await response.json();
+    const { lesson: updatedLesson, module: updatedModule } = await response.json();
+
     // take out previous lesson instance and update with new data.
     const oldLessonIndex = lessons.findIndex((lesson) => lesson._id === updatedLesson._id);
     lessons[oldLessonIndex] = updatedLesson;
+
+    // if updated Module is returned then we update our module.
+    if (updatedModule) module = updatedModule;
   }
 </script>
 
 {#if module}
   <!-- content here -->
-  <UnitHeader title={module.title} description={module.description} />
+  <UnitHeader title={module.title} description={module.description} completed={module.completed} />
+
   <Timeline order="vertical">
     {#each lessons as lesson}
       <LessonCard

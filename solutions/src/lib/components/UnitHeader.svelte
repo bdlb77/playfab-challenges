@@ -1,6 +1,7 @@
 <script lang="ts">
   export let title: string;
   export let description: string;
+  export let completed: boolean;
 </script>
 
 <section class="heading-section">
@@ -8,6 +9,7 @@
   {#if description}
     <p class="mb-2 text-md tracking-tight text-gray-900 dark:text-white">{description}</p>
   {/if}
+  {completed ? "Finished this Section" : ""}
 </section>
 
 <style>
