@@ -17,6 +17,7 @@
         unitType="module"
         title={module.title}
         description={module.description}
+        completed={module.completed}
         href="/courses/{course.id}/modules/{module.id}"
       />
     {/each}
