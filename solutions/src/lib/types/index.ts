@@ -13,7 +13,7 @@ export interface IModule extends Document {
   title: string;
   description: string;
   completed: boolean;
-  course: Schema.Types.ObjectId;
+  course: ICourse;
   lessons?: ILesson[];
 }
 
@@ -21,5 +21,5 @@ export interface ILesson extends Document {
   title: string;
   description: string;
   completed: boolean;
-  module: Schema.Types.ObjectId;
+  module: IModule;
 }

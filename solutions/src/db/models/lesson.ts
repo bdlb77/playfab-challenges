@@ -6,7 +6,7 @@ const lessonSchema = new Schema({
   title: String,
   description: String,
   completed: Boolean,
-  module: { type: Schema.Types.ObjectId, ref: "module"}
+  module: { type: Schema.Types.ObjectId, ref: "Module"}
 })
 
-export const LessonModel = mongoose.models.Lesson ??  mongoose.model<ILesson>("lesson", lessonSchema)
+export const LessonModel = mongoose.models?.Lesson ??  mongoose.model<ILesson>("Lesson", lessonSchema)

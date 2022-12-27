@@ -16,7 +16,7 @@ const courseSchema = new Schema({
 )
 
 courseSchema.virtual("modules", {
-  ref: "module",
+  ref: "Module",
   foreignField: "course",
   localField: "_id"
 })
@@ -28,4 +28,4 @@ courseSchema.virtual("modules", {
 // courseSchema.pre('find', autoPopulate);
 // courseSchema.pre('findOne', autoPopulate);
 
-export const CourseModel = mongoose.models.Course ??  mongoose.model<ICourse>("course", courseSchema)
+export const CourseModel = mongoose.models?.Course ??  mongoose.model<ICourse>("Course", courseSchema)

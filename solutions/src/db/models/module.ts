@@ -13,9 +13,9 @@ const moduleSchema = new Schema({
 })
 
 moduleSchema.virtual("lessons", {
-  ref: "lesson",
+  ref: "Lesson",
   localField: "_id",
   foreignField: "module"
 })
 
-export const ModuleModel = mongoose.models.Module ?? mongoose.model<IModule>("module", moduleSchema)
+export const ModuleModel = mongoose.models?.Module ?? mongoose.model<IModule>("Module", moduleSchema)
