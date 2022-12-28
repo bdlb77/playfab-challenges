@@ -17,6 +17,7 @@
   <UnitHeader title="My Courses" description="" completed={false} />
 
   <div class="course-list">
+
       {#each courses as course}
         <UnitCard
           completed={course.completed}

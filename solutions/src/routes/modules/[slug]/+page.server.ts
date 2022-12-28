@@ -4,9 +4,11 @@ import type { PageServerLoad } from "./$types";
 import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params }) => {
-  const { moduleId } = params;
+  const { slug } = params;
+  console.log({slug})
   try {
-    const moduleData = await ModuleModel.findOne<IModule>({id: moduleId}).populate("lessons");
+    const moduleData = await ModuleModel.findOne<IModule>({_id: slug}).populate("lessons");
+    console.log({moduleData})
     if (!moduleData) {
       throw error(404, "No Module")
     }
