@@ -3,9 +3,8 @@
   import type { PageData } from "./$types";
   export let data: PageData;
   import LessonCard from "$lib/components/LessonCard.svelte";
-  import { Timeline } from "flowbite-svelte";
+  import { Hr, Timeline } from "flowbite-svelte";
   import UnitHeader from "$lib/components/UnitHeader.svelte";
-  import type { ILesson } from "$lib/types";
 
   $: module = data.module;
   $: lessons = data.lessons;
@@ -36,8 +35,8 @@
 
 {#if module}
   <!-- content here -->
-  <UnitHeader title={module.title} description={module.description} completed={module.completed} />
-
+  <UnitHeader unitType="Module" title={module.title} description={module.description} completed={module.completed} />
+  <Hr class="my-5 mx-auto md:my-5" width="w-48" height="h-1"/>
   <Timeline order="vertical">
     {#each lessons as lesson}
       <LessonCard

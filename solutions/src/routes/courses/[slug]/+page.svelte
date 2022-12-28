@@ -1,7 +1,7 @@
 <script lang="ts">
   import UnitCard from "$lib/components/UnitCard.svelte";
   import UnitHeader from "$lib/components/UnitHeader.svelte";
-  import { Card } from "flowbite-svelte";
+  import { Card, Hr } from "flowbite-svelte";
 
   import type { PageData } from "./$types";
   export let data: PageData;
@@ -10,8 +10,9 @@
 </script>
 
 {#if course}
-  <UnitHeader title={course.title} description={course.description} completed={course.completed} />
-  <div class="course-container">
+  <UnitHeader unitType="Course" title={course.title} description={course.description} completed={course.completed} />
+  <Hr class="my-5 mx-auto md:my-5" width="w-48" height="h-1"/>
+  <Card color="purple" padding="sm" size="xl" class="grid md:grid-cols-2">
     {#each course.modules as module}
       <UnitCard
         unitType="module"
@@ -21,7 +22,7 @@
         href="/modules/{module._id}"
       />
     {/each}
-  </div>
+  </Card>
 {:else}
   <h1>Could Not Find Course.</h1>
 {/if}
@@ -31,5 +32,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 2rem;
+  }
+
+  .module-title {
+    font-size: 1.5rem;
   }
 </style>
