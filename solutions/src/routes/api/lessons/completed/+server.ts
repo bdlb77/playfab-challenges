@@ -1,10 +1,9 @@
 import { LessonModel } from "$db/models/lesson";
 import type {  RequestEvent, RequestHandler } from "./$types";
 import { error, json } from '@sveltejs/kit';
-import type { ILesson, IModule } from "$lib/types";
-import { ModuleModel } from "$db/models/module";
+import type { ICourse, ILesson, IModule } from "$lib/types";
 import { checkAllLessonsCompleted, getModule, updateModuleCompleted } from "$lib/services/moduleService";
-
+import { checkAllModulesCompleted, getCourse, updateCourseCompleted } from "$lib/services/courseService";
 export const POST: RequestHandler = async ({ request }: RequestEvent) => {
   try {
     const { id }  = await request.json();
@@ -26,7 +25,8 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
       throw error(404, "Could Not Find lesson after Update.");
     }
     const module: IModule | null = await getModule(lesson.module._id);
-    if (!module) throw new Error("Could not Find Module that Lesson belongs to.");
+
+    if (!module) throw error(404, "Could not Find Module that Lesson belongs to.");
 
     const isCompleted = await checkAllLessonsCompleted(module);
     console.log({isCompleted})
@@ -35,6 +35,15 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     if (isCompleted) {
       await updateModuleCompleted(module);
       updatedModule = await getModule(module._id);
+
+      const course: ICourse | null = await getCourse(updatedModule.course._id);
+      if (!course) throw error(404, "Could not find Course.");
+
+
+      const isCourseComplete = await checkAllModulesCompleted(course)
+      if (isCourseComplete) {
+        await updateCourseCompleted(course);
+      }
     }
 
 

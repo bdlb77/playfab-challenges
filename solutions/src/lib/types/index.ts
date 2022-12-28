@@ -1,4 +1,4 @@
-import type { Schema, Document } from "mongoose";
+import type { Document } from "mongoose";
 
 
 export interface ICourse extends Document {
