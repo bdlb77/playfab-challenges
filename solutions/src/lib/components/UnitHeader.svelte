@@ -1,15 +1,22 @@
 <script lang="ts">
+  import { Heading, P, Span } from "flowbite-svelte";
+
   export let title: string;
   export let description: string;
   export let completed: boolean;
+  export let unitType: string;
 </script>
 
 <section class="heading-section">
-  <h1 class="mb-2 font-bold tracking-tight text-gray-900 dark:text-white">{title}</h1>
-  {#if description}
-    <p class="mb-2 text-md tracking-tight text-gray-900 dark:text-white">{description}</p>
+  <Heading tag="h1" class="my-5">{title}
+  {#if unitType}
+    <Span class="text-purple-500" highlight>{unitType}</Span>
   {/if}
-  {completed ? "Finished this Section" : ""}
+</Heading>
+  {#if description}
+    <P class="mb-2 text-md tracking-tight text-gray-900 dark:text-white">{description}</P>
+  {/if}
+  <h2 class="text-green-500">{completed ? "Finished this Section" : ""}</h2>
 </section>
 
 <style>
