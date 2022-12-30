@@ -3,6 +3,7 @@
   import logo from "./svelte-logo.svg";
   import { userStore } from "$lib/stores/user";
     import { Navbar, NavBrand, NavHamburger, NavLi, NavUl } from "flowbite-svelte";
+    import { AcademicCap } from "svelte-heros-v2";
   async function handleLogout(event: Event) {
     event.preventDefault();
     const res = await fetch(`/auth/logout`, { method: "POST"});
@@ -16,8 +17,8 @@
 
 <Navbar let:hidden let:toggle rounded color="purple">
   <NavBrand href="/">
-    <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
-    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
+    <AcademicCap class="mr-3 h-6 sm:h-9"  alt="EduMate Logo"/>
+    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">EduMate</span>
   </NavBrand>
   <NavHamburger on:click={toggle} />
   <NavUl {hidden}>
@@ -27,5 +28,6 @@
     {:else}
       <NavLi href="/login">Login</NavLi>
     {/if}
+
   </NavUl>
 </Navbar>

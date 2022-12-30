@@ -10,13 +10,13 @@
 <section class="heading-section">
   <Heading tag="h1" class="my-5">{title}
   {#if unitType}
-    <Span class="text-indigo-500" highlight>{unitType}</Span>
+    <Span class="text-purple-500" highlight>{unitType}</Span>
   {/if}
 </Heading>
   {#if description}
     <P class="mb-2 text-md tracking-tight text-gray-900 dark:text-white">{description}</P>
   {/if}
-  {completed ? "Finished this Section" : ""}
+  <h2 class="text-green-500">{completed ? "Finished this Section" : ""}</h2>
 </section>
 
 <style>
