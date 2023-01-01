@@ -66,7 +66,30 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 
       const isCourseComplete = await checkAllModulesCompleted(course)
       if (isCourseComplete) {
+
         await updateCourseCompleted(course);
+
+        /*
+          Implementation Location for Updating User Statistic.
+        */
+        let finishedStatisticName: string;
+        switch (course.title) {
+          case "Math":
+            finishedStatisticName = "finished_math_course";
+            break;
+          case "English":
+            finishedStatisticName = "finished_english_course";
+            break;
+          default:
+            finishedStatisticName = "";
+        }
+        // Move User to finish_course
+        await incrementUserStatistic(playfabId, finishedStatisticName, 1);
+
+        /*
+          Implementation Location for Updating User Statistic.
+        */
+
       }
 
     }
