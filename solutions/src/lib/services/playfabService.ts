@@ -1,4 +1,4 @@
-import { APP_ID, BASE, APP_SECRET } from "../config";
+import { APP_ID, BASE, XRSERVER_API_SECRET, XRSERVER_API_KEY } from "../config";
 const LOGIN_PLAYFAB = "/auth/LoginWithPlayFab";
 const REGISTER_USER = "/auth/RegisterPlayFabUser";
 const UPDATE_PLAYER_STATISTIC  = "/server/UpdatePlayerStatistic"
@@ -51,8 +51,8 @@ export const incrementUserStatistic = async (PlayFabId: string, StatisticName: s
     method: "POST",
     headers: {
       'X-App-Id': APP_ID,
-      'X-Api-Secret': APP_SECRET,
-      'X-Api-Key': "grvc27dwi",
+      'X-Api-Secret': XRSERVER_API_SECRET,
+      'X-Api-Key': XRSERVER_API_KEY,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({PlayFabId, StatisticName, Value})
