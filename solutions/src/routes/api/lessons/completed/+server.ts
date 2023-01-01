@@ -1,25 +1,27 @@
 import { LessonModel } from "$db/models/lesson";
-import type {  RequestEvent, RequestHandler } from "./$types";
+import type { RequestEvent, RequestHandler } from "./$types";
 import { error, json } from '@sveltejs/kit';
 import type { ICourse, ILesson, IModule } from "$lib/types";
 import { checkAllLessonsCompleted, getModule, updateModuleCompleted } from "$lib/services/moduleService";
 import { checkAllModulesCompleted, getCourse, updateCourseCompleted } from "$lib/services/courseService";
+import { incrementUserStatistic } from "$lib/services/playfabService";
+import { CourseModel } from "$db/models/course";
 export const POST: RequestHandler = async ({ request }: RequestEvent) => {
   try {
-    const { id }  = await request.json();
+    const { id, playfabId } = await request.json();
     if (!id) {
       throw error(404, "Id is not Defined for Lesson.")
     }
 
-    const updateLessonRes = await LessonModel.updateOne({ _id: id},
+    const updateLessonRes = await LessonModel.updateOne({ _id: id },
       {
-        $set: { "completed": true}
+        $set: { "completed": true }
       }
     )
     if (!updateLessonRes.acknowledged) {
       throw error(400, "Could Not Update Lesson.");
     }
-    const lesson: ILesson | null = await LessonModel.findOne({_id: id});
+    const lesson: ILesson | null = await LessonModel.findOne({ _id: id });
 
     if (!lesson) {
       throw error(404, "Could Not Find lesson after Update.");
@@ -28,8 +30,30 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 
     if (!module) throw error(404, "Could not Find Module that Lesson belongs to.");
 
+    /*
+      Implementation Location for Updating User Statistic.
+    */
+    const course = await CourseModel.findById(module.course);
+    let statisticName: string;
+    console.log(`COURSE: ${course}`);
+    switch (course.title) {
+      case "Math":
+        statisticName = "math_course";
+        break;
+      case "English":
+        statisticName = "english_course";
+        break;
+      default:
+        statisticName = "";
+    }
+    // increment User statistic.
+    await incrementUserStatistic(playfabId, statisticName, 1);
+
+    /*
+      Implementation Location for Updating User Statistic.
+    */
+
     const isCompleted = await checkAllLessonsCompleted(module);
-    console.log({isCompleted})
     let updatedModule: IModule | null = null;
 
     if (isCompleted) {
@@ -42,15 +66,40 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 
       const isCourseComplete = await checkAllModulesCompleted(course)
       if (isCourseComplete) {
+
         await updateCourseCompleted(course);
+
+        /*
+          Implementation Location for Updating User Statistic.
+        */
+        let finishedStatisticName: string;
+        switch (course.title) {
+          case "Math":
+            finishedStatisticName = "finished_math_course";
+            break;
+          case "English":
+            finishedStatisticName = "finished_english_course";
+            break;
+          default:
+            finishedStatisticName = "";
+        }
+        // Move User to finish_course
+        await incrementUserStatistic(playfabId, finishedStatisticName, 1);
+
+        /*
+          Implementation Location for Updating User Statistic.
+        */
+
       }
+
     }
 
 
-    return json({lesson, module: updatedModule});
-  } catch(err)
-  {
-    console.error({err});
+
+
+    return json({ lesson, module: updatedModule });
+  } catch (err) {
+    console.error({ err });
     throw error(400, `Could not Process Request. ${err}`);
   }
 
