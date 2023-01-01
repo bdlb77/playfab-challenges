@@ -3,7 +3,6 @@ import { CourseModel } from '$db/models/course'
 import { ModuleModel } from '$db/models/module'
 import { LessonModel } from '$db/models/lesson'
 import { json } from "@sveltejs/kit"
-import { ObjectId } from 'mongodb'
 import type { ICourse } from '$lib/types'
 
 

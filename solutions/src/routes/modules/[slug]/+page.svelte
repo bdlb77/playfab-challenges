@@ -8,7 +8,7 @@
 
   $: module = data.module;
   $: lessons = data.lessons;
-
+  $: user = data.user;
 
   // export let success = false;
   // your script goes here
@@ -18,7 +18,7 @@
 
     const response = await fetch(`/api/lessons/completed`, {
       method: "POST",
-      body: JSON.stringify({ id: _id }),
+      body: JSON.stringify({ id: _id, playfabId: user.playfabId }),
       headers: {
         "Content-Type": "application/json"
       }
