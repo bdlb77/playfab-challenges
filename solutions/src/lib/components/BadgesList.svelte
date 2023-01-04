@@ -1,17 +1,15 @@
 <script lang="ts">
   import Badge from "$lib/components/Badge.svelte";
-  const badgeCount = [1, 2, 3, 4, 5, 6];
+  import type { IBadge } from "$lib/services/playfabService";
 
+  export let badges: IBadge[];
 </script>
 
-
-
 <section class="badges-section">
-  {#each badgeCount as badgeNum }
-    <Badge badgeNum={badgeNum} />
+  {#each badges as badge, id}
+    <Badge {badge} />
   {/each}
 </section>
-
 
 <style>
   .badges-section {

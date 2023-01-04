@@ -1,9 +1,11 @@
 <script lang="ts">
   import { page } from "$app/stores";
-    import BadgesList from "$lib/components/BadgesList.svelte";
+  import BadgesList from "$lib/components/BadgesList.svelte";
   import { Avatar, Span } from "flowbite-svelte";
+  import type { IBadge } from "$lib/services/playfabService";
 
   $: user = $page.data.user;
+  $: badges = $page.data.badges as IBadge[];
 </script>
 
 <svelte:head>
@@ -19,17 +21,17 @@
         <Avatar size="lg" src="https://i.pravatar.cc/150?img=7" />
       </div>
       <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-        <Span class="text-purple-500" highlight>Flayfab ID</Span> {user.playfabId}
+        <Span class="text-purple-500" highlight>Flayfab ID</Span>
+        {user.playfabId}
       </h5>
     </div>
   </section>
-  <section class="section">
-    <BadgesList />
+  <section style="width: 100%">
+    <BadgesList {badges} />
   </section>
 </div>
 
 <style>
-
   .section {
     width: 100%;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
@@ -60,5 +62,4 @@
     border-radius: 50%;
     background: #fff;
   }
-
 </style>
