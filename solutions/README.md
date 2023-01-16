@@ -53,6 +53,11 @@ You can reset the database by just reseeding. This won't delete the Rewards sinc
 Currently there is an issue in the app from Mongoose where
 if you restart the server, the `populate` commands can't resolve properly by being unable to locate the models defined in `src/db/models/` when `populate` is attempting to be ran again. Therefore, The plan is to migrate the DB to use [supabase](https://supabase.com/) in the mean time.
 
+If you restart the app, and you get a `500` Error, then you can resolve the issue currently by reseeding the DB to reset the records.
+
+```bash
+GET http://localhost:5173/api/seed
+```
 
 ## Building
 
