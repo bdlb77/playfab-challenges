@@ -8,7 +8,7 @@ In this challenge, we will ask you to repeat any necessary steps from above in
 the scenario that we've had a new Course be added to our education curriculum.
 
 The following sections will walk you through the steps necessary to integrate
- ur new Course with a badge to be awarded to users who complete it.
+ our new Course with a badge to be awarded to users who complete it.
 
 ## 1. New Course - Geography
 
@@ -28,8 +28,7 @@ following URL:
 GET http://localhost:5173/seed_geography_course
 ```
 
-You should see the response back which should be the  `Geography` data pulled
- from the recently populated database.
+You should see the response back which should be the  `Geography` data pulled from the recently populated database.
 
 <!-- ! TODO -->
 ```json
@@ -57,6 +56,7 @@ scenario:
  and `finished_geography_course`)
 - Check creation of the segments related to to each of the statistics created in
 the task above
+<!-- TODO: add badge image-->
 - Create a new badge item. You can use this [Geography Badge Image]()
 - Modify your Segments to reward the badge when finishing the Geography course
 in the editor section.

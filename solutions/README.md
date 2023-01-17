@@ -26,7 +26,6 @@ To run this project, you will need the following technologies:
 - [MongoDB Compass](https://www.mongodb.com/docs/compass/current/install/)
 - [Postman](https://www.postman.com/) [OPTIONAL]
 
-
 Install the Dependencies
 
 ```bash
@@ -46,7 +45,6 @@ GET http://localhost:5173/api/seed
 ```
 
 You can reset the database by just reseeding. This won't delete the Rewards since those are maintained on PlayFab XRServer, however it will allow you to go through the course completions again.
-
 
 ### Current Mongoose Issue
 
