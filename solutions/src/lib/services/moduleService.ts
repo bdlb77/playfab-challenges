@@ -1,27 +1,48 @@
-import type { IModule } from "$lib/types";
-import { ModuleModel } from "$db/models/module";
+import { supabase } from "$lib/db/db";
 
-export const updateModuleCompleted = async (module: IModule): Promise<void> => {
+export const updateModuleCompleted = async (moduleId: string) => {
+  const { data, error } = await supabase
+    .from("modules")
+    .update({ completed: true })
+    .match({ id: moduleId })
+    .select()
+    .single();
 
-  try{
-    await module.updateOne({completed: true});
-  } catch(err) {
-    throw new Error(`Issue with updating Module on Completion: ${err}`);
-  }
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+
+  return data;
 }
 
 
-export const getModule = async (id: string): Promise<IModule> => {
+export const getModule = async (id: string) => {
 
-  const module: IModule | null = await ModuleModel.findOne({_id: id});
-  if (!module) throw new Error("Module not Found");
+  const { data, error } = await supabase
+    .from("modules")
+    .select()
+    .match({ id: id })
+    .maybeSingle();
 
-  return module;
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+
+  return data;
 }
 
-export const checkAllLessonsCompleted = async (model: IModule): Promise<boolean> => {
-  const populatedModule = await model.populate("lessons");
-  const completions = populatedModule.lessons?.map( lesson => lesson.completed);
-  const allTrue: boolean = completions?.reduce((acc, element) => acc && element, true) as boolean;
-  return allTrue;
+export const checkAllLessonsCompleted = async (moduleId: number): Promise<boolean> => {
+  const { data, error } = await supabase
+    .from("modules")
+    .select(`
+      title,
+      id,
+      lessons (
+        completed
+      )`)
+    .match({ id: moduleId })
+    .single();
+
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+
+  const lessons: { completed: boolean }[] = data.lessons as { completed: boolean }[]
+
+  const courseCompleted = lessons.every(lesson => lesson.completed === true);
+  return courseCompleted
 }

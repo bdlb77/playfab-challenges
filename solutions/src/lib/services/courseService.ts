@@ -1,27 +1,50 @@
-import type { ICourse } from "$lib/types";
-import { CourseModel } from "$db/models/course";
+import { supabase } from "$lib/db/db";
 
-export const updateCourseCompleted = async (module: ICourse): Promise<void> => {
+export const updateCourseCompleted = async (courseId: number) => {
+    const { data, error } = await supabase
+      .from("courses")
+      .update({completed: true})
+      .match({id: courseId})
+      .select()
+      .single();
 
-  try{
-    await module.updateOne({completed: true});
-  } catch(err) {
-    throw new Error(`Issue with updating Module on Completion: ${err}`);
+    if (error) throw new Error(`Err from Supabase: ${error}`);
+
+    return data;
   }
+
+
+  export const getCourse = async (id: string) => {
+
+    const { data, error } = await supabase
+    .from("courses")
+    .select()
+    .match({id: id})
+    .maybeSingle();
+
+    if (error) throw new Error(`Err from Supabase: ${error}`);
+
+    return data;
+
 }
 
+export const checkAllModulesCompleted = async (courseId: number): Promise<boolean> => {
+  const { data, error } = await supabase
+    .from("courses")
+    .select(`
+      title,
+      id,
+      modules (
+        completed
+      )`)
+    .match({id: courseId})
+    .single();
 
-export const getCourse = async (id: string): Promise<ICourse> => {
+    if (error) throw new Error(`Err from Supabase: ${error}`);
 
-  const module: ICourse | null = await CourseModel.findOne({_id: id});
-  if (!module) throw new Error("Module not Found");
+    const modules: { completed: boolean }[] = data.modules as { completed: boolean }[]
 
-  return module;
-}
+    const courseCompleted = modules.every(module => module.completed === true);
+    return courseCompleted
 
-export const checkAllModulesCompleted = async (model: ICourse): Promise<boolean> => {
-  const populatedModule = await model.populate("modules");
-  const completions = populatedModule.modules?.map( lesson => lesson.completed);
-  const allTrue: boolean = completions?.reduce((acc, element) => acc && element, true) as boolean;
-  return allTrue;
 }
