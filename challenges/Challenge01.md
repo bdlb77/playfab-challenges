@@ -44,7 +44,6 @@ The `Developer Console` can be used to test the endpoints of your App. Select an
 
 Save these values to your config file for your front end web app.
 
-
 ## WebApp
 
 The demo application that is guided along with this uses [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/).
@@ -54,7 +53,8 @@ To run the application, you will need to set up a `.env` file and set the follow
 - The PlayFab App ID
 - The XR Server Base URL
 
-Each .env added for Svelte Environment has to be prefaced with `VITE`
+Each environment variable added for Svelte Environment has to be prefaced with `VITE`
+
 ```.env
 <!-- /app/.env -->
 VITE_BASE="https://test.playfab.tv"
