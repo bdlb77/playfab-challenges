@@ -15,7 +15,6 @@ const config = {
       checkOrigin: false,
     },
     alias: {
-      $db: './src/db',
     }
 
   }

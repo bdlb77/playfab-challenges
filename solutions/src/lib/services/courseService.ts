@@ -1,6 +1,7 @@
 import { supabase } from "$lib/db/db";
+import type { Course } from "$lib/db/types";
 
-export const updateCourseCompleted = async (courseId: number) => {
+export const updateCourseCompleted = async (courseId: number): Promise<Course> => {
     const { data, error } = await supabase
       .from("courses")
       .update({completed: true})
@@ -14,18 +15,25 @@ export const updateCourseCompleted = async (courseId: number) => {
   }
 
 
-  export const getCourse = async (id: string) => {
+  export const getCourse = async (id: number): Promise<Course> => {
 
     const { data, error } = await supabase
     .from("courses")
     .select()
-    .match({id: id})
+    .match({ id })
     .maybeSingle();
 
     if (error) throw new Error(`Err from Supabase: ${error}`);
+    if (!data) throw new Error(`Unable to find Course with Id: ${id}`);
 
     return data;
 
+}
+
+export const getCourses = async(): Promise<Course[]> => {
+  const { data, error } = await supabase.from("courses").select("*");
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+  return data;
 }
 
 export const checkAllModulesCompleted = async (courseId: number): Promise<boolean> => {

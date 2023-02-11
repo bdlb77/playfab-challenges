@@ -1,7 +1,8 @@
 import { supabase } from "$lib/db/db";
+import type { Module } from "$lib/db/types";
 
-export const updateModuleCompleted = async (moduleId: string) => {
-  const { data, error } = await supabase
+export const updateModuleCompleted = async (moduleId: number): Promise<Module> => {
+const { data, error } = await supabase
     .from("modules")
     .update({ completed: true })
     .match({ id: moduleId })
@@ -14,7 +15,7 @@ export const updateModuleCompleted = async (moduleId: string) => {
 }
 
 
-export const getModule = async (id: string) => {
+export const getModule = async (id: number): Promise<Module> => {
 
   const { data, error } = await supabase
     .from("modules")
@@ -23,6 +24,7 @@ export const getModule = async (id: string) => {
     .maybeSingle();
 
   if (error) throw new Error(`Err from Supabase: ${error}`);
+  if (!data) throw new Error(`Unable to Find Module id: ${id}`);
 
   return data;
 }

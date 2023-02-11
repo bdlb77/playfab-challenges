@@ -1,20 +1,20 @@
-import { ModuleModel } from "$db/models/module";
-import type { ILesson, IModule } from "$lib/types";
 import type { PageServerLoad } from "./$types";
 import { error } from '@sveltejs/kit';
+import { getModule } from "$lib/services/moduleService";
+import type { Lesson, Module } from "$lib/db/types";
+import { getLessons } from "$lib/services/lessonService";
 
 export const load: PageServerLoad = async ({ params, parent }) => {
 
   const { slug } = params;
   const { user } = await parent();
   try {
-    const moduleData = await ModuleModel.findOne<IModule>({_id: slug}).populate("lessons");
-    if (!moduleData) {
+    const module: Module = await getModule(Number(slug));
+    const lessons: Lesson[] = await getLessons(module.id);
+
+    if (!module) {
       throw error(404, "No Module")
     }
-    const moduleJSON = JSON.stringify(moduleData);
-    const module: IModule = JSON.parse(moduleJSON);
-    const lessons: ILesson[] = module.lessons || []
     return { module, lessons, user }
   } catch(err)
   {
