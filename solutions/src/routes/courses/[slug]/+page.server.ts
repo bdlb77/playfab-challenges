@@ -6,7 +6,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const { slug } = params;
 
   // check if stores exist.
-  const course = await getCourse(Number(slug));
+  const course = await getCourse(slug);
 
   const { user } = await parent();
   if (!user) {

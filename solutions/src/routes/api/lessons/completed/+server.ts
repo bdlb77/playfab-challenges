@@ -1,22 +1,22 @@
 import type { RequestEvent, RequestHandler } from "./$types";
 import { error, json } from '@sveltejs/kit';
 import { checkAllLessonsCompleted, getModule, updateModuleCompleted } from "$lib/services/moduleService";
-import { checkAllModulesCompleted, getCourse, updateCourseCompleted } from "$lib/services/courseService";
+import { checkAllModulesCompleted, updateCourseCompleted } from "$lib/services/courseService";
 import { incrementUserStatistic } from "$lib/services/playfabService";
 import { updateLessonCompleted } from "$lib/services/lessonService";
-import type { Database } from "$lib/db/database.types";
-import type { Module } from "$lib/db/types";
 export const POST: RequestHandler = async ({ request }: RequestEvent) => {
   try {
     const { id, playfabId } = await request.json();
+
     if (!id) {
       throw error(404, "Id is not Defined for Lesson.")
     }
-
     const lesson = await updateLessonCompleted(id);
 
-    let module = await getModule(lesson.module_id);
-    const course = await getCourse(module.course_id);
+    console.log({ lesson })
+    let { module } = lesson;
+    const { module: { course } } = lesson;
+
 
     let statisticName: string;
     switch (course.title) {
@@ -38,7 +38,7 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 
     const isCompleted = await checkAllLessonsCompleted(module.id);
     if (isCompleted) {
-      module = await updateModuleCompleted(module.id);
+      await updateModuleCompleted(module.id);
 
 
 
@@ -71,10 +71,8 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
       }
 
     }
-
-
-
-
+    // get updated Module
+    module = await getModule(module.id);
     return json({ lesson, module });
   } catch (err) {
     console.error({ err });

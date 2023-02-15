@@ -6,13 +6,17 @@ export const updateLessonCompleted = async (lessonId: string): Promise<Lesson> =
   .from("lessons")
   .update({completed: true})
   .match({ id: lessonId })
-  .select()
+  .select(`*,
+    module:modules!inner (*,
+      course:courses!inner (*))
+  `)
+  .returns<Lesson>()
   .single()
 
   if (error) throw new Error(`Unable to Update Lesson: ${lessonId}`);
 
   if (!data) throw new Error(`LessonId: ${lessonId} Not Found`);
-
+  console.log({data})
   return data;
 }
 
@@ -21,6 +25,7 @@ export const getLessons = async (moduleId: number): Promise<Lesson[]> => {
     from("lessons")
     .select("*")
     .match({module_id: moduleId})
+    .returns<Lesson>();
 
   if (error) throw new Error(`Unable to Get Lessons from moduleID: ${moduleId}`);
 

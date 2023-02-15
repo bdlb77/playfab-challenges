@@ -1,5 +1,5 @@
 import { supabase } from "$lib/db/db";
-import type { Course } from "$lib/db/types";
+import type { Course, Module } from "$lib/db/types";
 
 export const updateCourseCompleted = async (courseId: number): Promise<Course> => {
     const { data, error } = await supabase
@@ -15,17 +15,18 @@ export const updateCourseCompleted = async (courseId: number): Promise<Course> =
   }
 
 
-  export const getCourse = async (id: number): Promise<Course> => {
+  export const getCourse = async (id: string): Promise<Course> => {
 
     const { data, error } = await supabase
     .from("courses")
-    .select()
+    .select(`*,
+      modules (id, title, description, completed)
+    `)
     .match({ id })
     .maybeSingle();
 
-    if (error) throw new Error(`Err from Supabase: ${error}`);
+    if (error) throw new Error(`Err from Supabase: ${JSON.stringify(error)}`);
     if (!data) throw new Error(`Unable to find Course with Id: ${id}`);
-
     return data;
 
 }
@@ -46,7 +47,9 @@ export const checkAllModulesCompleted = async (courseId: number): Promise<boolea
         completed
       )`)
     .match({id: courseId})
+    .returns<Course & {modules?: Module[]}>()
     .single();
+
 
     if (error) throw new Error(`Err from Supabase: ${error}`);
 

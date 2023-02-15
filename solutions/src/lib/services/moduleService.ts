@@ -1,17 +1,19 @@
 import { supabase } from "$lib/db/db";
-import type { Module } from "$lib/db/types";
+import type { Lesson, Module } from "$lib/db/types";
 
-export const updateModuleCompleted = async (moduleId: number): Promise<Module> => {
+export const updateModuleCompleted = async (moduleId: number): Promise<boolean> => {
 const { data, error } = await supabase
     .from("modules")
     .update({ completed: true })
     .match({ id: moduleId })
     .select()
+    .returns<Module>()
     .single();
 
   if (error) throw new Error(`Err from Supabase: ${error}`);
+  if (!data) return false;
 
-  return data;
+  return true;
 }
 
 
@@ -19,8 +21,11 @@ export const getModule = async (id: number): Promise<Module> => {
 
   const { data, error } = await supabase
     .from("modules")
-    .select()
-    .match({ id: id })
+    .select(`*,
+      lessons (*)
+    `)
+    .match({ id  })
+    .returns<Module>()
     .maybeSingle();
 
   if (error) throw new Error(`Err from Supabase: ${error}`);
@@ -39,7 +44,9 @@ export const checkAllLessonsCompleted = async (moduleId: number): Promise<boolea
         completed
       )`)
     .match({ id: moduleId })
+    .returns<Module & { lessons: Lesson[] }>()
     .single();
+
 
   if (error) throw new Error(`Err from Supabase: ${error}`);
 

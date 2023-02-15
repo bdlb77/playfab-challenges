@@ -50,7 +50,7 @@
         <figcaption class="flex justify-center items-center space-x-3">
           <div class=" font-medium dark:text-white text-left mt-4">
             <A
-              href="courses/{course._id}"
+              href="courses/{course.id}"
               color="text-purple-500"
               class="font-medium hover:underline">Go to Course</A
             >
