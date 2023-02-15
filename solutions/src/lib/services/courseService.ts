@@ -31,8 +31,9 @@ export const updateCourseCompleted = async (courseId: number): Promise<Course> =
 
 }
 
-export const getCourses = async(): Promise<Course[]> => {
-  const { data, error } = await supabase.from("courses").select("*");
+export const getCourses = async(): Promise<Course & {modules: Module[]}[]> => {
+  const { data, error } = await supabase.from("courses").select("*, modules(*)")
+    .returns<Course & {modules: Module[]}[]>();
   if (error) throw new Error(`Err from Supabase: ${error}`);
   return data;
 }
