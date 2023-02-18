@@ -49,8 +49,8 @@ scenario:
  and `finished_geography_course`)
 - Check creation of the segments related to to each of the statistics created in
 the task above
-<!-- TODO: add badge image-->
-- Create a new badge item. You can use this [Geography Badge Image]()
+- Create a new badge item. You can use this [Geography Badge Image](../solutions/static//images/geography_course.jpg)
+  > Credit for image https://unsplash.com/photos/SCEywLgwj2E?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
 - Modify your Segments to reward the badge when finishing the Geography course
 in the editor section.
 
