@@ -21,7 +21,7 @@
         <Avatar size="lg" src="https://i.pravatar.cc/150?img=7" />
       </div>
       <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-        <Span class="text-purple-500" highlight>Flayfab ID</Span>
+        <Span class="text-purple-500" highlight>Playfab ID</Span>
         {user.playfabId}
       </h5>
     </div>
