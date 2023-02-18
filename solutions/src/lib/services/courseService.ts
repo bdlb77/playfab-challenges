@@ -9,7 +9,7 @@ export const updateCourseCompleted = async (courseId: number): Promise<Course> =
       .select()
       .single();
 
-    if (error) throw new Error(`Err from Supabase: ${error}`);
+    if (error) throw new Error(`Err from Supabase: ${JSON.stringify(error)}`);
 
     return data;
   }
@@ -34,7 +34,7 @@ export const updateCourseCompleted = async (courseId: number): Promise<Course> =
 export const getCourses = async(): Promise<Course & {modules: Module[]}[]> => {
   const { data, error } = await supabase.from("courses").select("*, modules(*)")
     .returns<Course & {modules: Module[]}[]>();
-  if (error) throw new Error(`Err from Supabase: ${error}`);
+  if (error) throw new Error(`Err from Supabase: ${JSON.stringify(error)}`);
   return data;
 }
 
@@ -52,7 +52,7 @@ export const checkAllModulesCompleted = async (courseId: number): Promise<boolea
     .single();
 
 
-    if (error) throw new Error(`Err from Supabase: ${error}`);
+    if (error) throw new Error(`Err from Supabase: ${JSON.stringify(error)}`);
 
     const modules: { completed: boolean }[] = data.modules as { completed: boolean }[]
 
