@@ -30,10 +30,12 @@ export const updateCourseCompleted = async (courseId: number): Promise<Course> =
     return data;
 
 }
-
-export const getCourses = async(): Promise<Course & {modules: Module[]}[]> => {
+interface ICourse extends Course{
+  modules: Module[];
+}
+export const getCourses = async(): Promise<ICourse[]> => {
   const { data, error } = await supabase.from("courses").select("*, modules(*)")
-    .returns<Course & {modules: Module[]}[]>();
+    .returns<Course & {modules: Module[]}>();
   if (error) throw new Error(`Err from Supabase: ${JSON.stringify(error)}`);
   return data;
 }
