@@ -15,28 +15,21 @@ The following sections will walk you through the steps necessary to integrate
 We have created a new course, Geography, and the first thing we will need to do
 is seed the data into our application
 
+Currently, this will reset our data on all our courses, but  our badges will remain.
+
+To seed Geography course run
+
+```bash
+npm run seed-geography-course
+```
+
 Start the Server
 
 ```bash
 npm run dev
 ```
 
-Open up [`Postman`](https://www.postman.com/), and make a request to the
-following URL:
-
-```
-GET http://localhost:5173/seed_geography_course
-```
-
-You should see the response back which should be the  `Geography` data pulled from the recently populated database.
-
-<!-- ! TODO -->
-```json
-SAMPLE REQUEST HERE
-```
-<!-- ! -->
-
-Now if you head back to the courses index page, you should see our Geography
+Now if you head to the courses index page, you should see our Geography
  course among the other courses.
 
 ```bash
@@ -56,8 +49,8 @@ scenario:
  and `finished_geography_course`)
 - Check creation of the segments related to to each of the statistics created in
 the task above
-<!-- TODO: add badge image-->
-- Create a new badge item. You can use this [Geography Badge Image]()
+- Create a new badge item. You can use this [Geography Badge Image](../solutions/static//images/geography_course.jpg)
+  > Credit for image https://unsplash.com/photos/SCEywLgwj2E?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
 - Modify your Segments to reward the badge when finishing the Geography course
 in the editor section.
 
