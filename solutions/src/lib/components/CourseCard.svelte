@@ -4,8 +4,7 @@
 
   export let course: any;
 
-  let completionLength = course.modules.filter((mod) => mod.completed).length;
-  console.log({ completionLength });
+  let completionLength = course.modules.filter((mod: Module) => mod.completed).length;
   let completionPercent = Math.floor((completionLength / course.modules.length) * 100);
 </script>
 
