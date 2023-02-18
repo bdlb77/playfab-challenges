@@ -12,7 +12,8 @@
     "format": "prettier --plugin-search-dir . --write .",
     "supabase-init": "supabase init",
     "supabase-start": "supabase start",
-    "reset-db": "supabase db reset"
+    "reset-db": "supabase db reset",
+    "seed-geography-course": "chmod +x src ./scripts/prepare_geo_migration.bash && ./scripts/prepare_geo_migration.bash src/lib/db/geography.sql"
   },
   "devDependencies": {
     "@playwright/test": "^1.28.1",
