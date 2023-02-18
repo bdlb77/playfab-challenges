@@ -1,9 +1,8 @@
 import type { Handle } from "@sveltejs/kit";
+import "$lib/db/db"
 import { parse } from 'cookie';
-import { startMongo } from "$db/mongo";
 
 export const handle: Handle = async ({ event, resolve }) => {
-  startMongo().then(() => console.log("Started Mongo..."));
 
   const cookies = parse(event.request.headers.get('cookie') || '');
   const jwt = cookies.jwt && Buffer.from(cookies.jwt, 'base64').toString('utf-8');

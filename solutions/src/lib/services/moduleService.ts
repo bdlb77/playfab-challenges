@@ -1,27 +1,57 @@
-import type { IModule } from "$lib/types";
-import { ModuleModel } from "$db/models/module";
+import { supabase } from "$lib/db/db";
+import type { Lesson, Module } from "$lib/db/types";
 
-export const updateModuleCompleted = async (module: IModule): Promise<void> => {
+export const updateModuleCompleted = async (moduleId: number): Promise<boolean> => {
+const { data, error } = await supabase
+    .from("modules")
+    .update({ completed: true })
+    .match({ id: moduleId })
+    .select()
+    .returns<Module>()
+    .single();
 
-  try{
-    await module.updateOne({completed: true});
-  } catch(err) {
-    throw new Error(`Issue with updating Module on Completion: ${err}`);
-  }
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+  if (!data) return false;
+
+  return true;
 }
 
 
-export const getModule = async (id: string): Promise<IModule> => {
+export const getModule = async (id: number): Promise<Module> => {
 
-  const module: IModule | null = await ModuleModel.findOne({_id: id});
-  if (!module) throw new Error("Module not Found");
+  const { data, error } = await supabase
+    .from("modules")
+    .select(`*,
+      lessons (*)
+    `)
+    .match({ id  })
+    .returns<Module>()
+    .maybeSingle();
 
-  return module;
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+  if (!data) throw new Error(`Unable to Find Module id: ${id}`);
+
+  return data;
 }
 
-export const checkAllLessonsCompleted = async (model: IModule): Promise<boolean> => {
-  const populatedModule = await model.populate("lessons");
-  const completions = populatedModule.lessons?.map( lesson => lesson.completed);
-  const allTrue: boolean = completions?.reduce((acc, element) => acc && element, true) as boolean;
-  return allTrue;
+export const checkAllLessonsCompleted = async (moduleId: number): Promise<boolean> => {
+  const { data, error } = await supabase
+    .from("modules")
+    .select(`
+      title,
+      id,
+      lessons (
+        completed
+      )`)
+    .match({ id: moduleId })
+    .returns<Module & { lessons: Lesson[] }>()
+    .single();
+
+
+  if (error) throw new Error(`Err from Supabase: ${error}`);
+
+  const lessons: { completed: boolean }[] = data.lessons as { completed: boolean }[]
+
+  const courseCompleted = lessons.every(lesson => lesson.completed === true);
+  return courseCompleted
 }

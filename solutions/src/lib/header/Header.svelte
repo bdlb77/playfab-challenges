@@ -23,6 +23,8 @@
   <NavHamburger on:click={toggle} />
   <NavUl {hidden}>
     {#if $page.data.user}
+
+    <NavLi href="/users/{$page.data.user.playfabId}" active={$page.url.pathname ===`/users/${$page.data.user.playfabId}`}>Profile</NavLi>
       <NavLi href="/" active={$page.url.pathname === "/"}>Courses</NavLi>
       <NavLi href="#" on:click={handleLogout}>Logout</NavLi>
     {:else}

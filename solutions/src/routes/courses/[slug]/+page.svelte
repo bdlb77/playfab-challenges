@@ -2,6 +2,7 @@
   import UnitCard from "$lib/components/UnitCard.svelte";
   import UnitHeader from "$lib/components/UnitHeader.svelte";
   import { Card, Hr, A } from "flowbite-svelte";
+  import type {Module} from "$lib/db/types";
 
   import type { PageData } from "./$types";
   export let data: PageData;
@@ -25,7 +26,7 @@
         title={module.title}
         description={module.description}
         completed={module.completed}
-        href="/modules/{module._id}"
+        href="/modules/{module.id}"
       />
     {/each}
   </Card>
