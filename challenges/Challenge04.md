@@ -38,7 +38,13 @@ In Challenge 3 you implemented adding users to segments when completeting course
 
 Explore the API endpoints available in the XRServer Developer Console. Which endpoints can you use to retreive the Badges awarded to your User? Test them in the Developer Console until you know how to retrieve all the information you need.
 
-> NOTE: when displaying a badge, you must make sure `Release State` is set to `Released` for your badge to show.
+> NOTE: when displaying a badge, you must make sure `Release State` is set to `Released` for your badge to be awarded to
+> the user.
+>
+> In the `/users/[id]/` folder, you will need to ensure that the inventory is correctly being fetched in the `+page.server.ts` to pull the inventory from a User. Feel free to reference the commented out code.
+>
+> Also, in the svelte pages for frontend, you will need to figure out
+> how to display the badges correctly via the hints of code that are left.
 
 In the web app, add the following functionatlity:
 

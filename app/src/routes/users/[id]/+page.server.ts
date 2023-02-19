@@ -14,13 +14,15 @@ export const load: PageServerLoad = async ({ parent, params }) => {
     throw redirect(303, "/")
   }
 
-  const playFabRes = await getUserInventory(user.playfabId);
+  // TODO: IMPLEMENT THIS!
+  // const playFabRes = await getUserInventory(user.playfabId);
 
-  if (playFabRes.code !== 200) {
-    throw error(playFabRes.code, playFabRes.message);
-  };
+  // if (playFabRes.code !== 200) {
+  //   throw error(playFabRes.code, playFabRes.message);
+  // };
 
-  const { data: { Items: badges} } = playFabRes;
+  // let { data: { Items: badges} } = playFabRes;
+  const badges = [];
   return {
     user, badges
   }

@@ -5,6 +5,7 @@ export function respond(res: PlayFabRes) {
     throw error(res.code, res.message);
   }
 
+  // TODO: REMOVE THIS ONCE YOU"VE INTEGRATED PLAYFAB SIGNIN
   const value = Buffer.from(JSON.stringify(res.data)).toString('base64');
 
   return json(res, {

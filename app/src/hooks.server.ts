@@ -14,6 +14,9 @@ export const handle: Handle = async ({ event, resolve }) => {
     const playfabId = parsedJwt.LoginResult.PlayFabId;
     event.locals.user = { playfabId };
   }
+
+  // THIS WILL PREVENT FROM LOGGING OUT UNTIL REMOVE
+  event.locals.user = { playfabId: "SAMPLE" };
   console.log("EVENT LOCALS:", event.locals)
   return await resolve(event);
 };

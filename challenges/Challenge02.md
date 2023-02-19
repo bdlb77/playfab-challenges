@@ -74,6 +74,7 @@ You should receive a 200 OK application/json response that looks like:
 ## Implement Registration and Login in a Web App
 
 
+
 Add a login/signup form to your web app. Use the APIs you enabled in the previous step.  Also, implement the required `login and register functions` found in [`playfabService.ts`](../app/src/lib/services/playfabService.ts).
 
 Verify your solution works end to end, i.e. you can register a user, login with the newly created user and capture the value of the `SessionTicket` returned from the API.
@@ -81,5 +82,13 @@ Verify your solution works end to end, i.e. you can register a user, login with 
 Exactly how you implement this is up to you, although you can use the following code as a starting point:
 
 `https://svelte.dev/repl/ca967b45a5aa47b2bb2f9118eb79eefe?version=3.50.1`
+
+
+> NOTE: in `hooks.server.ts` , this is where you'll want to pass the PlayFabID to each request for the user.
+> currently, it is hard-coded to a SAMPLE user
+>```typescript
+> event.locals.user = { playfabId: "SAMPLE" };
+> ```
+> You will need to remove this when you want to verify that your user is successfully logged in.
 
 Congratulations! You have successfully enabled User Registration and Login, and created a User on your XRServer instance!

@@ -5,6 +5,7 @@
   export let badge: IBadge;
 
   // const imageData = badge.data.find(el => ? );
+  const imageData = "";
 </script>
 
 <Card class="badge" padding="none">

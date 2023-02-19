@@ -27,13 +27,13 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     password: json.password
   }
   // post to API for Login
-  const playfabRes = await loginPlayFab(user);
-  const responseObj: PlayFabRes = {
-    code: playfabRes.code,
-    message: playfabRes.message,
-    data: playfabRes.data,
-    success: playfabRes.success
-  };
+  // const playfabRes = await loginPlayFab(user);
+  // const responseObj: PlayFabRes = {
+  //   code: playfabRes.code,
+  //   message: playfabRes.message,
+  //   data: playfabRes.data,
+  //   success: playfabRes.success
+  // };
 
   return respond(responseObj);
 }
