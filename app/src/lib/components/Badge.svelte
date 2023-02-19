@@ -4,7 +4,7 @@
 
   export let badge: IBadge;
 
-  const imageData = badge.data.find(el => el.dataKey === "image" );
+  // const imageData = badge.data.find(el => ? );
 </script>
 
 <Card class="badge" padding="none">
@@ -12,10 +12,11 @@
     {#if imageData}
       <img
         class="rounded-t-sm"
-        src="/images/{imageData.dataVal}"
+        <!--  ! IMPLEMENT ! -->
+        src="/images/IMPLEMENT ME!"
         alt="great britain badge"
       />
-      <h3>{badge.playfab.DisplayName}</h3>
+      <h3>BADGE NAME HERE</h3>
     {:else}
       <h3>Unable to Show Badge</h3>
     {/if}

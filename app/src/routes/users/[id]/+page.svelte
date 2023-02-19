@@ -2,10 +2,10 @@
   import { page } from "$app/stores";
   import BadgesList from "$lib/components/BadgesList.svelte";
   import { Avatar, Span } from "flowbite-svelte";
-  import type { IBadge } from "$lib/services/playfabService";
+  // import type { IBadge } from "$lib/services/playfabService";
 
   $: user = $page.data.user;
-  $: badges = $page.data.badges as IBadge[];
+  // $: badges =
 </script>
 
 <svelte:head>
@@ -27,7 +27,7 @@
     </div>
   </section>
   <section style="width: 100%">
-    <BadgesList {badges} />
+    <!-- <BadgesList {badges} /> -->
   </section>
 </div>
 

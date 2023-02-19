@@ -16,14 +16,13 @@ interface PlayFabResponse {
 
   */
 };
-
 export interface IBadge {
-  /*
-
-  IMPLEMENT ME!!
-
-  */
+  playfab: { ItemInstanceId: string; ItemClass: string; DisplayName: string; }
+  // data: {
+  // !IMPLEMENT ME!!
+  // }[]
 }
+
 interface PlayFabIntenvoryResponse extends PlayFabResponse {
     /*
 

@@ -23,10 +23,6 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     // increment User statistic.
     await incrementUserStatistic(playfabId, statisticName, 1);
 
-    /*
-      Implementation Location for Updating User Statistic.
-    */
-
     const isCompleted = await checkAllLessonsCompleted(module.id);
     if (isCompleted) {
       await updateModuleCompleted(module.id);
@@ -38,16 +34,9 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 
         await updateCourseCompleted(course.id);
 
-        /*
-          Implementation Location for Updating User Statistic.
-        */
         const finishedStatisticName: string = getStatisticName(course.title, isCompleted)
         // Move User to finish_course
         await incrementUserStatistic(playfabId, finishedStatisticName, 1);
-
-        /*
-          Implementation Location for Updating User Statistic.
-        */
 
       }
 

@@ -56,3 +56,14 @@ in the editor section.
 
 All of these tasks should be similar to what you have accomplished in Challenges
 1 through 4. Please refer to those for extra assistance.
+
+You know you have completed the task when you are able to finish a Geography Course, and are awarded the Geography Badge that you can view in the Profile Page, next to the Math and English badges.
+## Summary
+
+Congratulations! You've succesfully completed the foundation to understanding how to integrate PlayFab and XRServer into your web app.
+
+Now, you hopefully will be able to take this knowledge and set up an appropriate XRServer and Playfab backend that others will be able to use as a way to interact with different User Segments.
+
+PlayFab and XRServer can be extended to other applications outside of the gaming industry, and hopefully this tutorial gave you insight on how you can use these platforms to enable gamification for non-gaming focused initiatives.
+
+Also, if set up in an intuitive way, XRServer can be a platform for your non-developer colleagues (such as marketing / advertising teams) as a way that they can drive engagement and interaction initiatives and campaigns.
