@@ -1,72 +1,73 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-  import { goto, invalidate } from '$app/navigation';
-  import { getContext } from "svelte";
+  import { Input, Label, Helper, Button } from "flowbite-svelte";
 
-  const user = getContext("user");
   let username: string = "";
   let password: string = "";
+  let confirmPassword: string = "";
   let errors: any = null;
 
   async function submit(event: SubmitEvent) {
-    const response = await fetch(`auth/login`, {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
 
-    // TODO handle network errors
+      if (confirmPassword !== password) {
+        throw new Error("Passwords do not match.");
+      }
+      const response = await fetch(`auth/login`, {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
 
-    const body: PlayFabRes = await response.json();
-    if (body.success) {
-      return location.href = "/";
-    } else {
-      errors = body.message;
+      // TODO handle network errors
+
+      const body: PlayFabRes = await response.json();
+      if (body.success) {
+        return (location.href = "/");
+      } else {
+        errors = body.message;
+      }
+    } catch(err: any) {
+      errors.push(err.message);
     }
+
   }
 </script>
 
 <svelte:head>
-  <title>Sign in • Conduit</title>
+  <title>Sign in • EduMate</title>
 </svelte:head>
 
 <div class="auth-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1 class="text-xs-center">Sign In</h1>
-        <p class="text-xs-center">
-          <a href="/register">Need an account?</a>
-        </p>
+  <div class="container mx-auto w-1/2">
+    <h1 class="text-xs-center">Sign In</h1>
 
+    <form on:submit|preventDefault={submit} class="mx-auto mt-4">
+      <div class="grid gap-12 mb-6 md:grid-cols-1">
         {#if errors}
-          <p class="error-message">{errors}</p>
+          <Helper class="mt-2" color="red">{errors}</Helper>
         {/if}
 
-        <form on:submit|preventDefault={submit}>
-          <fieldset class="form-group">
-            <input
-              class="form-control form-control-lg"
-              type="username"
-              required
-              placeholder="Username"
-              bind:value={username}
-            />
-          </fieldset>
-          <fieldset class="form-group">
-            <input
-              class="form-control form-control-lg"
-              type="password"
-              required
-              placeholder="Password"
-              bind:value={password}
-            />
-          </fieldset>
-          <button class="btn btn-lg btn-primary pull-xs-right" type="submit"> Sign in </button>
-        </form>
+        <fieldset class="form-group">
+          <Label for="username" class="mb-2" required=true>Username</Label>
+          <Input type="text" id="username" placeholder="Username" required bind:value={username} />
+        </fieldset>
+        <fieldset class="form-group">
+          <Label for="password" class="mb-2">Password</Label>
+          <Input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+            bind:value={password}
+          />
+        </fieldset>
+        <Button type="submit" color="primary">Submit</Button>
       </div>
-    </div>
+      </form>
+    <p class="text-xs-center">
+      <a href="/register">Need an account?</a>
+    </p>
   </div>
 </div>
