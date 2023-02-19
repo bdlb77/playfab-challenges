@@ -12,7 +12,7 @@ The [Step 2: Set Up Your Project](https://www.xrserver.com/demo) video covers so
 
 ## Create Badges
 
-In XRServer, `Items` should be one of the default pages available in the left side menu. If it's not, go to `Config` -> the `App Config` seciton -> the `Menu Layout` Tile.  Here you can edit everything visible in your App's Menu.  You can even rename `Items` to something more appropriate to your business terminology.  
+In XRServer, `Items` should be one of the default pages available in the left side menu. If it's not, go to `Config` -> the `App Config` seciton -> the `Menu Layout` Tile.  Here you can edit everything visible in your App's Menu.  You can even rename `Items` to something more appropriate to your business terminology.
 
 Before we can add new Items, we need to define Item classes.  Go to `Config` -> the `Class Definitions` section -> the `Item Class` tile.  Define an Item Class for Badges. Add at least one `Custom Property` to reference an image for your Badges.
 
@@ -37,6 +37,8 @@ Now that your Rules are implemented, verify that moving a User into a Segment au
 In Challenge 3 you implemented adding users to segments when completeting courses in the web app. Now, we also want to display the badges awarded when completeing courses.
 
 Explore the API endpoints available in the XRServer Developer Console. Which endpoints can you use to retreive the Badges awarded to your User? Test them in the Developer Console until you know how to retrieve all the information you need.
+
+> NOTE: when displaying a badge, you must make sure `Release State` is set to `Released` for your badge to show.
 
 In the web app, add the following functionatlity:
 
