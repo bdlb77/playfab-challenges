@@ -58,7 +58,7 @@ In the `Developer Console` -> `Server` section find the UpdatePlayerStatistic en
 Below is an UpdatePlayerStatistic example response.  Note the statistic value has been incremented by 1 (see the original value is shown in the `params` section).
 
 ```json
-{ 
+{
     "code": 200,
     "message": "OK",
     "success": true,
@@ -97,13 +97,18 @@ At this point you should have the following `Segments` created in XRServer:
 
 You should also have created `Statistics` in XRServer and used them in your `Segments` to determine when a user should be added or removed from a segment.
 
-You also know which API endpoints to use to update a User's statistics. Exlpore the Developer Console to discover other API endpoints that will be useful for displaying this information on the front end.
+You also know which API endpoints to use to update a User's statistics. Exlpore the `Developer Console` to discover other API endpoints that will be useful for displaying this information on the front end.
 
 Now, add the following functionatlity to your web app:
 
 1. Allow a User to add themselves to a course
 2. Allow a User to finish a course
 3. Display the User's status for each course (for example; not started, started, or finished)
+
+To Point 3, use the [`Profile Page`](../app/src/routes/users/[id]/+page.svelte) to display any data you are able to pull out from PlayFab.
+
+> Note: You can verify if a User has entered a segment in PlayFab (not XRServer) by viewing a Segment's
+
 
 ## Summary
 

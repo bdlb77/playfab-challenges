@@ -4,7 +4,24 @@ _⚠ This is a hackathon project with no support or quality guarantee_
 
 This project is used to demonstrate how one can utilize [PlayFab](https://playfab.com/) and [XR Server](https://www.xrserver.com/) to integrate realtime interaction and LiveOps into your applications to drive User Engagement.
 
+## Guidance
+
+This Project consists of 3 main sections:
+
+1. [`app/`](./app//README.md) - A boilerplate app that can be used as your
+   implementation for the Challenges that are presented. This app has all
+   playFab and XRServer implementations removed as to give opportunity to
+   implement and learn by building out an example similar to the concept
+   of a `hackoverflow`
+1. [`solutions/`](./solutions/README.md) - This section includes a finished solution as a way to give
+   guidance and examples to those who get stuck.
+2. [`challenges/`](./challenges/Challenge01.md) - A series of challenges that will walk the user through tasks
+  that can be completed to better understand how to build out the app but more
+  importantly, how to interact with PlayFab and XRServer.
+
+
 ## Contributing
+
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us

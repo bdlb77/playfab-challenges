@@ -1,57 +1,31 @@
 <script lang="ts">
-  import Counter from "$lib/Counter.svelte";
+    import CourseCard from "$lib/components/CourseCard.svelte";
+  import UnitCard from "$lib/components/UnitCard.svelte";
+  import UnitHeader from "$lib/components/UnitHeader.svelte";
+  import logo from "$lib/header/svelte-logo.svg";
+  import { A, Card } from "flowbite-svelte";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
+  $: courses = data.courses;
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Courses</title>
+  <meta name="description" content="Courses App" />
 </svelte:head>
 
-<section>
-  <h1>
-    <span class="welcome">
-      <picture>
-        <source srcset="svelte-welcome.webp" type="image/webp" />
-        <img src="svelte-welcome.png" alt="Welcome" />
-      </picture>
-    </span>
+<div class="courses">
 
-    to your new<br />SvelteKit app
-  </h1>
+  <UnitHeader unitType="" title="My Courses" description="" completed={false} />
 
-  <h2>
-    try editing <strong>src/routes/+page.svelte</strong>
-  </h2>
-
-  <Counter />
-</section>
-
-<style>
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-  }
-
-  h1 {
-    width: 100%;
-  }
-
-  .welcome {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding: 0 0 calc(100% * 495 / 2048) 0;
-  }
-
-  .welcome img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: block;
-  }
-</style>
+  <Card
+    color="primary"
+    size="xl"
+    class="course-list bg-purple-200 border-purple-500 grid md:grid-cols-2"
+  >
+    {#each courses as course}
+      <CourseCard {course}/>
+    {/each}
+  </Card>
+</div>
