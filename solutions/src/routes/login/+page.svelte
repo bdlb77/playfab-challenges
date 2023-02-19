@@ -3,15 +3,11 @@
 
   let username: string = "";
   let password: string = "";
-  let confirmPassword: string = "";
   let errors: any = null;
 
   async function submit(event: SubmitEvent) {
     try {
 
-      if (confirmPassword !== password) {
-        throw new Error("Passwords do not match.");
-      }
       const response = await fetch(`auth/login`, {
         method: "POST",
         body: JSON.stringify({ username, password }),
@@ -29,7 +25,7 @@
         errors = body.message;
       }
     } catch(err: any) {
-      errors.push(err.message);
+      errors = err.message;
     }
 
   }

@@ -4,6 +4,7 @@ import { checkAllLessonsCompleted, getModule, updateModuleCompleted } from "$lib
 import { checkAllModulesCompleted, updateCourseCompleted } from "$lib/services/courseService";
 import { incrementUserStatistic } from "$lib/services/playfabService";
 import { updateLessonCompleted } from "$lib/services/lessonService";
+import { getStatisticName } from "$lib/utils";
 export const POST: RequestHandler = async ({ request }: RequestEvent) => {
   try {
     const { id, playfabId } = await request.json();
@@ -18,17 +19,7 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     const { module: { course } } = lesson;
 
 
-    let statisticName: string;
-    switch (course.title) {
-      case "Math":
-        statisticName = "math_course";
-        break;
-      case "English":
-        statisticName = "english_course";
-        break;
-      default:
-        statisticName = "";
-    }
+    const statisticName: string = getStatisticName(course.title, false);
     // increment User statistic.
     await incrementUserStatistic(playfabId, statisticName, 1);
 
@@ -50,17 +41,7 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
         /*
           Implementation Location for Updating User Statistic.
         */
-        let finishedStatisticName: string;
-        switch (course.title) {
-          case "Math":
-            finishedStatisticName = "finished_math_course";
-            break;
-          case "English":
-            finishedStatisticName = "finished_english_course";
-            break;
-          default:
-            finishedStatisticName = "";
-        }
+        const finishedStatisticName: string = getStatisticName(course.title, isCompleted)
         // Move User to finish_course
         await incrementUserStatistic(playfabId, finishedStatisticName, 1);
 
