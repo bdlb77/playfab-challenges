@@ -12,21 +12,6 @@
         throw Error("Passwords do not match.");
       }
 
-      const response = await fetch(`auth/register`, {
-        method: "POST",
-        body: JSON.stringify({ username, password, email }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      const body: PlayFabRes = await response.json();
-      console.log({ body });
-      if (body.success) {
-        return (location.href = "/");
-      } else {
-        console.log(body.message);
-        errors = body.message;
-      }
     } catch (err: any) {
       console.log({err})
       errors = err;
@@ -48,36 +33,7 @@
           <Helper class="mt-2" color="red">{errors}</Helper>
         {/if}
 
-        <fieldset class="form-group">
-          <Label for="username" class="mb-2">Username</Label>
-          <Input type="text" id="username" placeholder="Username" required bind:value={username} />
-        </fieldset>
-        <fieldset class="form-group">
-          <Label for="email" class="mb-2">Email</Label>
-          <Input type="email" id="email" placeholder="Email" required bind:value={email} />
-        </fieldset>
-
-        <fieldset class="form-group">
-          <Label for="Password" class="mb-2">Password</Label>
-          <Input
-            type="password"
-            id="Password"
-            placeholder="Password"
-            required={true}
-            bind:value={password}
-          />
-        </fieldset>
-        <fieldset class="form-group">
-          <Label for="confirm_password" class="mb-2">Confirm Password</Label>
-          <Input
-            type="password"
-            id="confirm_password"
-            placeholder="Password"
-            required
-            bind:value={confirmPassword}
-          />
-        </fieldset>
-
+        <h1>IMPLEMENT ME!</h1>
         <Button type="submit" color="primary">Sign Up</Button>
       </div>
     </form>

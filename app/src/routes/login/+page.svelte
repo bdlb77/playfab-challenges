@@ -1,29 +1,12 @@
 <script lang="ts">
   import { Input, Label, Helper, Button } from "flowbite-svelte";
 
+  let errors: any = null;
   let username: string = "";
   let password: string = "";
-  let errors: any = null;
-
   async function submit(event: SubmitEvent) {
     try {
 
-      const response = await fetch(`auth/login`, {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-
-      // TODO handle network errors
-
-      const body: PlayFabRes = await response.json();
-      if (body.success) {
-        return (location.href = "/");
-      } else {
-        errors = body.message;
-      }
     } catch(err: any) {
       errors = err.message;
     }
@@ -44,24 +27,9 @@
         {#if errors}
           <Helper class="mt-2" color="red">{errors}</Helper>
         {/if}
+      <h1>IMPLEMENT ME</h1>
+      <Button type="submit" color="primary">Sign Up</Button>
 
-        <fieldset class="form-group">
-          <Label for="username" class="mb-2" required=true>Username</Label>
-          <Input type="text" id="username" placeholder="Username" required bind:value={username} />
-        </fieldset>
-        <fieldset class="form-group">
-          <Label for="password" class="mb-2">Password</Label>
-          <Input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-            bind:value={password}
-          />
-        </fieldset>
-        <Button type="submit" color="primary">Submit</Button>
-      </div>
-      </form>
     <p class="text-xs-center">
       <a href="/register">Need an account?</a>
     </p>

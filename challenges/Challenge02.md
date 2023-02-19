@@ -41,7 +41,7 @@ Example Request Body:
 You should receive a 200 OK application/json response that looks like:
 
 ```json
-{ 
+{
     "code": 200,
     "message": "OK",
     "success": true,
@@ -62,7 +62,7 @@ Then test your Login API with the Developer Console by registering a User on /au
 You should receive a 200 OK application/json response that looks like:
 
 ```json
-{ 
+{
     "code": 200,
     "message": "OK",
     "success": true,
@@ -73,7 +73,10 @@ You should receive a 200 OK application/json response that looks like:
 
 ## Implement Registration and Login in a Web App
 
-Add a login/signup form to your web app. Use the APIs you enabled in the previous step.  Verify your solution works end to end, i.e. you can register a user, login with the newly created user and capture the value of the `SessionTicket` returned from the API.
+
+Add a login/signup form to your web app. Use the APIs you enabled in the previous step.  Also, implement the required `login and register functions` found in [`playfabService.ts`](../app/src/lib/services/playfabService.ts).
+
+Verify your solution works end to end, i.e. you can register a user, login with the newly created user and capture the value of the `SessionTicket` returned from the API.
 
 Exactly how you implement this is up to you, although you can use the following code as a starting point:
 

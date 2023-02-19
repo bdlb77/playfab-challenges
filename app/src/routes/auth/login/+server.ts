@@ -26,10 +26,8 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
     username: json.username,
     password: json.password
   }
-  console.log({user})
   // post to API for Login
   const playfabRes = await loginPlayFab(user);
-
   const responseObj: PlayFabRes = {
     code: playfabRes.code,
     message: playfabRes.message,

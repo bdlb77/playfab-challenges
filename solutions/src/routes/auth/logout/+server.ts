@@ -1,6 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { json } from "@sveltejs/kit"
-import  { serialize } from "cookie";
 export const POST: RequestHandler = async () => {
   return json({
     ok: true
