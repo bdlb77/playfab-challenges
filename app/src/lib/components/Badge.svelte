@@ -10,12 +10,11 @@
 <Card class="badge" padding="none">
   <div class="card-layout">
     {#if imageData}
-      <img
+      <!-- <img
         class="rounded-t-sm"
-        <!--  ! IMPLEMENT ! -->
         src="/images/IMPLEMENT ME!"
         alt="great britain badge"
-      />
+      /> -->
       <h3>BADGE NAME HERE</h3>
     {:else}
       <h3>Unable to Show Badge</h3>

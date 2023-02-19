@@ -29,7 +29,7 @@
         {/if}
       <h1>IMPLEMENT ME</h1>
       <Button type="submit" color="primary">Sign Up</Button>
-
+    </form>
     <p class="text-xs-center">
       <a href="/register">Need an account?</a>
     </p>
