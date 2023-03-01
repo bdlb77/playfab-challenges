@@ -41,7 +41,6 @@ container that will contain the Supabase platform.
 The config for supabase should be provided already, so there
 **is no reason** to run `supabase init`
 
-
 However, You will need to start the server
 
 ```bash
@@ -71,7 +70,6 @@ First go to to create an account and set up a project.
 
 > If you get lost, you can refer to the
 > [SvelteKit Supabase Getting Started Guide](https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit)
-
 
 ```bash
 https://app.supabase.com/

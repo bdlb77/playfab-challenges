@@ -1,6 +1,6 @@
-_⚠ This is a hackathon project with no support or quality guarantee_
-
 # PlayFab & XR Server Challenge Content for Non Gaming
+
+_⚠ This is a hackathon project with no support or quality guarantee_
 
 This project is used to demonstrate how one can utilize [PlayFab](https://playfab.com/) and [XR Server](https://www.xrserver.com/) to integrate realtime interaction and LiveOps into your applications to drive User Engagement.
 
@@ -15,17 +15,15 @@ This Project consists of 3 main sections:
    of a `hackoverflow`
 1. [`solutions/`](./solutions/README.md) - This section includes a finished solution as a way to give
    guidance and examples to those who get stuck.
-2. [`challenges/`](./challenges/Challenge01.md) - A series of challenges that will walk the user through tasks
+1. [`challenges/`](./challenges/Challenge00.md) - A series of challenges that will walk the user through tasks
   that can be completed to better understand how to build out the app but more
-  importantly, how to interact with PlayFab and XRServer.
-
+  importantly, how to interact with PlayFab and XRServer. The link will take you to the introduction page of the challenge series.
 
 ## Contributing
 
-
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions

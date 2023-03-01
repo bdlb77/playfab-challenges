@@ -11,37 +11,38 @@ User engagement with our applications.
 ## Scenario
 
 The scenario of this Challenge series is that we have an existing Education
-platform that allows our students to complete their lessons online. Currently
-they are able to succesfully complete `lessons`, which will in turn finish out
-a module. Once all `modules` are completed, then they have finished the `course`
-(such as Math).
+platform `named **EduMate** that allows our students to complete their lessons online.
 
-What we would like to walk through is how can we further give the students something
-to strive for, perhaps awarding of badges to those who have completed the course?
+Currently, our users can use the **EduMate** to track their course progress for a `Math` course, and also an `English` course.
 
-As you progress through the challenges, we guide you through ways of how to make
-this possible and how we can go about integrating XRServer and PlayFab into the
-education platform. This work would typically need to be done by the developer.
+Now, this is where [`PlayFab`](https://playfab.com/) and [`XRServer`](https://www.xrserver.com/) come in! How about we take this a step further and integrate [LiveOps] capabilities that will allow our EduMate platform to incentivise our students to finish their courses!
 
-However, the beauty is, once we have linked up a few key integrations wtih PlayFab,
-a developer would be able to hand it off to a Marketing team to begin running
-LiveOps campaigns, by determining what criteria they want to award badges for based
-on the User's accomplishments in our platform.
+One great way we can drive daily user interaction is to *reward our users with a badge for finishing the course*.
+
+Let us then walk through the challenges, and learn about how we can use `XRServer` and `PlayFab` to set up a backend platform to make badge rewarding easy!
+
+The integration into XRServer and our EduMate platform would have to be done by a developer (most likely the one following this tutorial), however once this is set up we could hand the backend to a non-technical colleague to easily drive different LiveOps campaigns to incentivize our students!
+
+## Learning Objectives
+
+- Increased familiarity of `PlayFab` and `XRServer`
+- Understanding of how to integrate LiveOps using `PlayFab` and `XRServer`
 
 ## Data Schema
+
+For our students to complete a Course, they will need to first do their `Lessons` that are found within a Course's `modules`. To get a better idea of how this data structure is laid out
 
 Here is an example of the Data Schema:
 
 ![Data Schema](screenshots/schema_example.png)
 
-
 ## Getting Started
 
 Now, the first step will be is to follow the `Developing` section
-of the [`README.md`](../README.md)
+of the [`/app/README.md`](../app/README.md#developing). This will be where you will learn about which dependencies are used for the sample application and which technologies you will need to complete the challenges.
 
-Once you've verified that you can run the application and use `Supabase`,
-proceed to [`Challenge01`](Challenge01.md).
+Once you've verified that you can run the base application in the [`app folder`](../app/README.md#edumate-sample-app) and use `Supabase` (see link to `app folder`)
 
+**proceed to [`Challenge01`](Challenge01.md)**
 
-As a note, some of the pages may not function as expected. For example, you will not be able to navigate to `Login` or `Register` given that a Sample user is hardcoded in the `hooks.server.ts` file, and this should be fixed by you when the challenge for integrating wtih PlayFab authentication is attempted.
+> As a note, some of the pages may not function as expected. For example, you will not be able to navigate to `Login` or `Register` given that a Sample user is hardcoded in the `hooks.server.ts` file, and this should be fixed by you when the challenge for integrating wtih PlayFab authentication is attempted.
