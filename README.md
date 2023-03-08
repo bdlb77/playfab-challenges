@@ -6,6 +6,8 @@ This project is used to demonstrate how one can utilize [PlayFab](https://playfa
 
 ## Overview
 
+> ! ! NOTE:  **Please Fork this Repo** to complete the Challenges described below
+
 This repo consists of a series of challenges to learn how to use `PlayFab` and `XRServer`. The goal is to become familiar with these technologies, and also learn how you can integrate [LiveOps](https://playfab.com/liveops/) using the above technologies. This will give you insight on how to help improve User Engagement and Retention through things like badge awarding for a User's continuous interaction with your application.
 
 We hope one of the main takeaways is to realize that gamification using `PlayFab` is not solely for the Video Game industry, but instead can be leveraged in any application that takes advantage of the versatile PlayFab platform.
