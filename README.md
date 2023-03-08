@@ -4,7 +4,13 @@ _⚠ This is a hackathon project with no support or quality guarantee_
 
 This project is used to demonstrate how one can utilize [PlayFab](https://playfab.com/) and [XR Server](https://www.xrserver.com/) to integrate realtime interaction and LiveOps into your applications to drive User Engagement.
 
-## Guidance
+## Overview
+
+This repo consists of a series of challenges to learn how to use `PlayFab` and `XRServer`. The goal is to become familiar with these technologies, and also learn how you can integrate [LiveOps](https://playfab.com/liveops/) using the above technologies. This will give you insight on how to help improve User Engagement and Retention through things like badge awarding for a User's continuous interaction with your application.
+
+We hope the one of the main takeaways is to realize that gamification using `PlayFab` is not solely for the Video Game industry, but instead can be leveraged
+`
+## Project Highlights
 
 This Project consists of 3 main sections:
 
