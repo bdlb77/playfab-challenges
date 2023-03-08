@@ -43,7 +43,7 @@ of the [`/app/README.md`](../app/README.md#developing). This will be where you w
 
 Once you've verified that you can run the base application in the [`app folder`](../app/README.md#edumate-sample-app) and use `Supabase` (see link to `app folder`)
 
-**proceed to [`Challenge01`](Challenge01.md)**
+[**Proceed to `Challenge01`**](Challenge01.md)
 
 > As a note, some of the pages may not function as expected. For example, you will not be able to navigate to `Login` or `Register` given that a Sample user is hardcoded in the `hooks.server.ts` file, and this should be fixed by you when the challenge for integrating wtih PlayFab authentication is attempted.
 

@@ -61,6 +61,14 @@ VITE_BASE="https://test.playfab.tv"
 VITE_APP_ID="9su9yv"
 ```
 
+## Summary
+
+At this point you should have your XRServer initialized, along with a PlayFab title.
+
+You should have added your `environment variables` to a `.env` file within the `app/` folder for your application.
+
+[Continue to `Chalenge 02`](./Challenge02.md)
+
 ## Resources
 
 - [PlayFab Developer Portal](https://developer.playfab.com/en-us/my-games)

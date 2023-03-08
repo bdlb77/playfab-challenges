@@ -58,6 +58,8 @@ In the web app, add the following functionatlity:
 
 Your App now drives user engagement with Gamification by implementing acheivement badges and leveraging XRServer's Items, Segments, and Rules.
 
+[Continue to `Chalenge 05`](./Challenge05.md)
+
 ## Resources
 
 - [English Badge Image Location](../app/static/images/english_course.png)

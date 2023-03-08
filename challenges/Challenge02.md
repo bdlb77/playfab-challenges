@@ -96,6 +96,8 @@ Congratulations! You have successfully enabled User Registration and Login, and 
 
 At this point you should be able to Register a New User, and login through the app.
 
+[Continue to `Chalenge 03`](./Challenge03.md)
+
 ## Resources
 
 - [PlayFab Developer Portal](https://developer.playfab.com/en-us/my-games)

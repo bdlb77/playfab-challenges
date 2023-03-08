@@ -113,6 +113,8 @@ To Point 3, use the [`Profile Page`](../app/src/routes/users/[id]/+page.svelte) 
 
 Congratulations, your users can now start and finish courses using segments and statistics!
 
+[Continue to `Chalenge 04`](./Challenge04.md)
+
 ## Resources
 
 - [PlayFab Developer Portal](https://developer.playfab.com/en-us/my-games)
