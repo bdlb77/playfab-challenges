@@ -57,3 +57,17 @@ In the web app, add the following functionatlity:
 ## Summary
 
 Your App now drives user engagement with Gamification by implementing acheivement badges and leveraging XRServer's Items, Segments, and Rules.
+
+## Resources
+
+- [English Badge Image Location](../app/static/images/english_course.png)
+
+- [Math Badge Image Location](../app/static/images/math_course.png)
+
+- [PlayFab Developer Portal](https://developer.playfab.com/en-us/my-games)
+
+- `XRServer Developer Portal` -  <https://xxx.playfab.tv/editor/> (Need to replace xxx with own domain)
+
+- `XRServer Developer API Console` <https://xxx.playfab.tv/editor/console/Auth> (Need to replace xxx with own domain)
+
+- [SvelteKit Sample Code](https://svelte.dev/repl/ca967b45a5aa47b2bb2f9118eb79eefe?version=3.50.1)
