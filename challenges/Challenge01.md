@@ -4,7 +4,7 @@ At the end of this challenge, challengers should know how to initialize an XRSer
 
 ## PlayFab
 
-Follow [this quickstart guide](https://learn.microsoft.com/en-us/gaming/playfab/gamemanager/quickstart) to create your PlayFab Account, Studio, and Title.  
+Follow [this quickstart guide](https://learn.microsoft.com/en-us/gaming/playfab/gamemanager/quickstart) to create your PlayFab Account, Studio, and Title.
 
 Once your Title has been created, go to the `Title Settings`
 
@@ -60,3 +60,11 @@ Each environment variable added for Svelte Environment has to be prefaced with `
 VITE_BASE="https://test.playfab.tv"
 VITE_APP_ID="9su9yv"
 ```
+
+## Resources
+
+- [PlayFab Developer Portal](https://developer.playfab.com/en-us/my-games)
+
+- `XRServer Developer Portal` -  <https://xxx.playfab.tv/editor/> (Need to replace xxx with own domain)
+
+- [SvelteKit](https://kit.svelte.dev/docs/introduction)

@@ -1,12 +1,12 @@
 # Challenge 0 - Overview
 
 This series of challenges is meant to walk you through the steps needed to
-set up XRServer and PlayFab, as well as guide you on how to integrate these
-platforms into the sample web app built in Svelte.
+set up `XRServer` and `PlayFab`, as well as guide you on how to integrate these
+platforms into the sample web app built in `SvelteKit`.
 
-The main goal of these challenges are to demonstrate how we can leverage XRServer
+The main goal of these challenges is to demonstrate how we can leverage XRServer
 and PlayFab as a platform to enable us to run LiveOps campaigns to drive further
-User engagement with our applications.
+User engagement within our applications.
 
 ## Scenario
 
@@ -15,7 +15,7 @@ platform `named **EduMate** that allows our students to complete their lessons o
 
 Currently, our users can use the **EduMate** to track their course progress for a `Math` course, and also an `English` course.
 
-Now, this is where [`PlayFab`](https://playfab.com/) and [`XRServer`](https://www.xrserver.com/) come in! How about we take this a step further and integrate [LiveOps] capabilities that will allow our EduMate platform to incentivise our students to finish their courses!
+Now, this is where [`PlayFab`](https://playfab.com/) and [`XRServer`](https://www.xrserver.com/) come in! How about we take this a step further and integrate [LiveOps](https://playfab.com/liveops/) capabilities that will allow our EduMate platform to incentivise our students to finish their courses!
 
 One great way we can drive daily user interaction is to *reward our users with a badge for finishing the course*.
 
@@ -46,3 +46,15 @@ Once you've verified that you can run the base application in the [`app folder`]
 **proceed to [`Challenge01`](Challenge01.md)**
 
 > As a note, some of the pages may not function as expected. For example, you will not be able to navigate to `Login` or `Register` given that a Sample user is hardcoded in the `hooks.server.ts` file, and this should be fixed by you when the challenge for integrating wtih PlayFab authentication is attempted.
+
+## Resources
+
+- [PlayFab](https://playfab.com/)
+
+- [Alice & Smith's XR Server](https://www.xrserver.com/)
+
+- [Alice & Smith's Website](https://www.aliceandsmith.com/)
+
+- [LiveOps](https://playfab.com/liveops/)
+
+- [SvelteKit Tutorial](https://kit.svelte.dev/docs/introduction)

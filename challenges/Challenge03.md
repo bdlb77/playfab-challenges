@@ -109,7 +109,16 @@ To Point 3, use the [`Profile Page`](../app/src/routes/users/[id]/+page.svelte) 
 
 > Note: You can verify if a User has entered a segment in PlayFab (not XRServer) by viewing a Segment's
 
-
 ## Summary
 
 Congratulations, your users can now start and finish courses using segments and statistics!
+
+## Resources
+
+- [PlayFab Developer Portal](https://developer.playfab.com/en-us/my-games)
+
+- `XRServer Developer Portal` -  <https://xxx.playfab.tv/editor/> (Need to replace xxx with own domain)
+
+- `XRServer Developer API Console` <https://xxx.playfab.tv/editor/console/Auth> (Need to replace xxx with own domain)
+
+- [SvelteKit Sample Code](https://svelte.dev/repl/ca967b45a5aa47b2bb2f9118eb79eefe?version=3.50.1)

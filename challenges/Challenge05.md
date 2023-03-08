@@ -50,7 +50,7 @@ scenario:
 - Check creation of the segments related to to each of the statistics created in
 the task above
 - Create a new badge item. You can use this [Geography Badge Image](../solutions/static//images/geography_course.jpg)
-  > Credit for image https://unsplash.com/photos/SCEywLgwj2E?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+  > Credit for image <https://unsplash.com/photos/SCEywLgwj2E?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink>
 - Modify your Segments to reward the badge when finishing the Geography course
 in the editor section.
 
@@ -58,6 +58,7 @@ All of these tasks should be similar to what you have accomplished in Challenges
 1 through 4. Please refer to those for extra assistance.
 
 You know you have completed the task when you are able to finish a Geography Course, and are awarded the Geography Badge that you can view in the Profile Page, next to the Math and English badges.
+
 ## Summary
 
 Congratulations! You've succesfully completed the foundation to understanding how to integrate PlayFab and XRServer into your web app.
@@ -67,3 +68,15 @@ Now, you hopefully will be able to take this knowledge and set up an appropriate
 PlayFab and XRServer can be extended to other applications outside of the gaming industry, and hopefully this tutorial gave you insight on how you can use these platforms to enable gamification for non-gaming focused initiatives.
 
 Also, if set up in an intuitive way, XRServer can be a platform for your non-developer colleagues (such as marketing / advertising teams) as a way that they can drive engagement and interaction initiatives and campaigns.
+
+## Resources
+
+- [Geography Badge Image Location](../app/static/images/geography_course.jpeg)
+
+- [Geography Seed Data Location](../app/data/geography_course.sql)
+
+- `XRServer Developer Portal` -  <https://xxx.playfab.tv/editor/> (Need to replace xxx with own domain)
+
+- `XRServer Developer API Console` <https://xxx.playfab.tv/editor/console/Auth> (Need to replace xxx with own domain)
+
+- [SvelteKit Sample Code](https://svelte.dev/repl/ca967b45a5aa47b2bb2f9118eb79eefe?version=3.50.1)
